@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones - Cargador 3V para Boiler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #25D366; /* Verde de WhatsApp */
+            --secondary-color: #2c3e50; 
+            --text-color: #333;
+            --light-bg: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px;
+            background-color: #fff;
+            border-bottom: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: var(--secondary-color);
+            font-size: 2em; 
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1em; 
+            color: #666;
+            margin-top: 0;
+        }
+        
+        .product-image {
+            max-width: 100%; 
+            height: auto;
+            margin: 15px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-flex; 
+            align-items: center;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            margin: 15px 0;
+            border-radius: 50px; 
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #128C7E; 
+        }
+
+        section {
+            padding: 20px 15px;
+            background-color: #fff;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .instruction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .instruction-table th, .instruction-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .instruction-table th {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .instruction-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* ESTA ES LA SOLUCIÓN AL DESCUADRE DE LA TABLA */
+        /* Aplicamos el scroll/no-wrap solo en dispositivos pequeños (max-width: 600px) */
+        @media (max-width: 600px) {
+            .instruction-table {
+                display: block; 
+                overflow-x: auto; /* Permite desplazamiento horizontal */
+            }
+            .instruction-table th, .instruction-table td {
+                white-space: nowrap; /* Fuerza a mantener el texto en una línea en el móvil */
+            }
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .benefit-item {
+            flex: 1 1 100%;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--light-bg);
+            border-radius: 4px;
+        }
+
+        .tip-extra {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ffebcc;
+            border-left: 5px solid #ffaa00;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 15px;
+            color: #777;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>🔌 ¡Adiós a las Pilas! El Instructivo en Video del Cargador 3V para Boiler de Paso</h1>
+            <p><strong>Energía estable sin interrupciones.</strong> Aprende a instalar tu cargador en 5 minutos para reemplazar las pilas tipo "D" de forma permanente.</p>
+            
+            <img src="flyer.png" 
+                 alt="Cargador 3V para Boiler de Paso" 
+                 class="product-image">
+
+            <a href="+526624682717?text=Hola,%20me%20interesa%20el%20Cargador%203V%20para%20Boiler%20de%20Paso%20que%20vi%20en%20el%20instructivo." class="cta-button" target="_blank">
+                🟢 Comprar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="video">
+            <h2>📺 Video e Instrucciones Comentadas</h2>
+            <p>Mira el video a continuación para ver exactamente cómo se conecta tu nuevo cargador.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lbH3vvhSfzU" title="Instrucciones para la conexión del Eliminador de Boiler de Paso" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="guia">
+            <h2>📝 Lo Esencial de la Instalación: Guía Comentada</h2>
+            <p>El proceso es sencillo y seguro, pero sigue estas recomendaciones para un resultado perfecto:</p>
+            
+            <table class="instruction-table">
+                <thead>
+                    <tr>
+                        <th>Proceso</th>
+                        <th>Lo que vas a hacer (Explicación Amigable)</th>
+                        <th>Por qué es Importante (El Tip del Experto)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Paso 1: Seguridad</strong> (0:00 - 0:35)</td>
+                        <td><strong>Desconecta el cargador de la luz antes de empezar.</strong></td>
+                        <td>La seguridad es lo primero. Siempre instala cualquier equipo eléctrico sin estar conectado a la corriente de pared.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 2: Conexión de Caimanes</strong> (1:13 - 3:10)</td>
+                        <td><strong>Conecta el caimán rojo (+) y luego el negro (-)</strong> en los huecos de la caja de pilas.</td>
+                        <td><strong>¡Recuerda la Polaridad!</strong> El rojo va donde tocaba el <strong>lado positivo</strong> de la pila (la punta). Si usas pinzas pequeñas te será mucho más fácil engancharlos correctamente.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 3: Cerrar la Tapa</strong> (3:19 - 3:45)</td>
+                        <td><strong>Acomoda los cables antes de cerrar la tapa</strong> del compartimento.</td>
+                        <td>Para evitar un cortocircuito o que se dañen, asegúrate de que <strong>la tapa NO cierre sobre el cable delgado</strong>. Empújalos o haz una pequeña muesca a la tapa.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paso 4: Prueba Final</strong> (3:45 - 4:42)</td>
+                        <td>Conecta el cargador a la corriente. El LED verde debe encender. <strong>Abre el agua caliente.</strong></td>
+                        <td>El encendido debe ser <strong>instantáneo</strong>. Esto confirma que el cargador está enviando los 3V estables, garantizando un chispazo fuerte y fiable.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="beneficios">
+            <h2>🔥 Beneficios Clave y El Tip Extra</h2>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <strong>Ahorro Constante</strong>
+                    <p>Di adiós a los gastos de pilas costosas que se acaban en el peor momento.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>Encendido Perfecto</strong>
+                    <p>Entrega 3V estables, eliminando el encendido lento o débil que dan las pilas agotadas.</p>
+                </div>
+                <div class="benefit-item">
+                    <strong>Máxima Seguridad</strong>
+                    <p>Tu cargador incluye protección integrada contra cortocircuitos.</p>
+                </div>
+            </div>
+
+            <div class="tip-extra">
+                <h3>💡 ¿Por qué el Tip Extra de Guardar las Pilas? (4:43)</h3>
+                <p>El experto en el video hace hincapié en que <strong>guardes tus pilas viejas que aún tengan carga</strong>.</p>
+                <p><strong>Explicación:</strong> Si hay un corte de luz en tu casa, el cargador deja de funcionar. Si guardaste tus pilas, puedes desconectar los caimanes, poner tus pilas de emergencia y seguir usando agua caliente hasta que regrese la luz. <strong>¡Es tu plan B perfecto!</strong></p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Cargador 3V para Boiler de Paso | Compatible con Mirage, Calorex, Bosch, Kruger y más. | <a href="https://wa.me/[TU NUMERO DE WHATSAPP CON CLAVE DE PAÍS]" target="_blank">Contacto por WhatsApp</a></p>
+    </footer>
+
+</body>
+</html>
