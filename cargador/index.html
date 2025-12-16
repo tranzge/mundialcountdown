@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrucciones - Cargador 3V para Boiler</title>
+    
+    <title>Cargador 3V para Boiler de Paso | Instrucciones y Compra</title>
+    
+    <meta name="description" content="Olvídate de las pilas de tu boiler. Reemplázalas permanentemente con nuestro Cargador 3V. Ve el video de instalación y compra por WhatsApp. Compatible con Mirage, Calorex, Bosch, etc.">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -25,7 +29,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 10px;
+            padding: 15px;
         }
 
         header {
@@ -50,7 +54,7 @@
         }
         
         .product-image {
-            max-width: 100%; 
+            max-width: 90%; /* Ajuste para que no se sienta tan grande en móvil */
             height: auto;
             margin: 15px auto;
             border: 1px solid #ddd;
@@ -110,41 +114,39 @@
             height: 100%;
             border: 0;
         }
-
-        .instruction-table {
-            width: 100%;
-            border-collapse: collapse;
+        
+        /* CÓDIGO DE LAS TARJETAS DE PASOS (LISTA RESPONSIVE) */
+        .step-list {
+            list-style: none;
+            padding: 0;
             margin-top: 15px;
         }
 
-        .instruction-table th, .instruction-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+        .step-item {
+            background-color: var(--light-bg);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 4px;
         }
 
-        .instruction-table th {
-            background-color: var(--secondary-color);
-            color: #fff;
-            font-weight: 600;
+        .step-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 1.1em;
         }
 
-        .instruction-table tr:nth-child(even) {
-            background-color: #f9f9f9;
+        .step-tip {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px dotted #ccc;
         }
-        
-        /* ESTA ES LA SOLUCIÓN AL DESCUADRE DE LA TABLA */
-        /* Aplicamos el scroll/no-wrap solo en dispositivos pequeños (max-width: 600px) */
-        @media (max-width: 600px) {
-            .instruction-table {
-                display: block; 
-                overflow-x: auto; /* Permite desplazamiento horizontal */
-            }
-            .instruction-table th, .instruction-table td {
-                white-space: nowrap; /* Fuerza a mantener el texto en una línea en el móvil */
-            }
-        }
-        
+        /* FIN CÓDIGO DE TARJETAS */
+
         .benefits-list {
             list-style: none;
             padding: 0;
@@ -187,10 +189,10 @@
             <p><strong>Energía estable sin interrupciones.</strong> Aprende a instalar tu cargador en 5 minutos para reemplazar las pilas tipo "D" de forma permanente.</p>
             
             <img src="flyer.png" 
-                 alt="Cargador 3V para Boiler de Paso" 
+                 alt="Cargador 3V para Boiler de Paso compatible con Calorex, Mirage, Bosch" 
                  class="product-image">
 
-            <a href="+526624682717?text=Hola,%20me%20interesa%20el%20Cargador%203V%20para%20Boiler%20de%20Paso%20que%20vi%20en%20el%20instructivo." class="cta-button" target="_blank">
+            <a href="https://wa.me/[TU NUMERO DE WHATSAPP CON CLAVE DE PAÍS]?text=Hola,%20escaneé%20el%20código%20y%20me%20interesa%20comprar%20el%20Cargador%203V%20para%20Boiler." class="cta-button" target="_blank">
                 🟢 Comprar por WhatsApp
             </a>
         </div>
@@ -207,40 +209,31 @@
         </section>
 
         <section id="guia">
-            <h2>📝 Lo Esencial de la Instalación: Guía Comentada</h2>
-            <p>El proceso es sencillo y seguro, pero sigue estas recomendaciones para un resultado perfecto:</p>
+            <h2>📝 Guía Comentada Paso a Paso</h2>
+            <p>El proceso es sencillo y seguro. Sigue estas recomendaciones (que complementan el video) para un resultado perfecto:</p>
             
-            <table class="instruction-table">
-                <thead>
-                    <tr>
-                        <th>Proceso</th>
-                        <th>Lo que vas a hacer (Explicación Amigable)</th>
-                        <th>Por qué es Importante (El Tip del Experto)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Paso 1: Seguridad</strong> (0:00 - 0:35)</td>
-                        <td><strong>Desconecta el cargador de la luz antes de empezar.</strong></td>
-                        <td>La seguridad es lo primero. Siempre instala cualquier equipo eléctrico sin estar conectado a la corriente de pared.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paso 2: Conexión de Caimanes</strong> (1:13 - 3:10)</td>
-                        <td><strong>Conecta el caimán rojo (+) y luego el negro (-)</strong> en los huecos de la caja de pilas.</td>
-                        <td><strong>¡Recuerda la Polaridad!</strong> El rojo va donde tocaba el <strong>lado positivo</strong> de la pila (la punta). Si usas pinzas pequeñas te será mucho más fácil engancharlos correctamente.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paso 3: Cerrar la Tapa</strong> (3:19 - 3:45)</td>
-                        <td><strong>Acomoda los cables antes de cerrar la tapa</strong> del compartimento.</td>
-                        <td>Para evitar un cortocircuito o que se dañen, asegúrate de que <strong>la tapa NO cierre sobre el cable delgado</strong>. Empújalos o haz una pequeña muesca a la tapa.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Paso 4: Prueba Final</strong> (3:45 - 4:42)</td>
-                        <td>Conecta el cargador a la corriente. El LED verde debe encender. <strong>Abre el agua caliente.</strong></td>
-                        <td>El encendido debe ser <strong>instantáneo</strong>. Esto confirma que el cargador está enviando los 3V estables, garantizando un chispazo fuerte y fiable.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-title">Paso 1: Seguridad (0:00 - 0:35)</div>
+                    <p><strong>Desconecta el cargador de la luz antes de empezar.</strong></p>
+                    <p class="step-tip">El Tip del Experto: Aunque el cargador no da toques, siempre instala cualquier equipo eléctrico sin estar conectado a la corriente de pared.</p>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Paso 2: Conexión de Caimanes (1:13 - 3:10)</div>
+                    <p><strong>Conecta el caimán rojo (+) y luego el negro (-)</strong> en los huecos de la caja de pilas. </p>
+                    <p class="step-tip"><strong>¡Recuerda la Polaridad!</strong> El rojo va donde tocaba el <strong>lado positivo</strong> de la pila (la punta). Usa pinzas pequeñas para enganchar los caimanes en las laminillas del fondo.</p>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Paso 3: Cerrar la Tapa (3:19 - 3:45)</div>
+                    <p><strong>Acomoda los cables antes de cerrar la tapa</strong> del compartimento.</p>
+                    <p class="step-tip">Para evitar daños, asegúrate de que <strong>la tapa NO cierre sobre el cable delgado</strong>. Empújalos o haz una pequeña muesca a la tapa si es necesario.</p>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Paso 4: Prueba Final (3:45 - 4:42)</div>
+                    <p>Conecta el cargador a la corriente. El LED verde debe encender. <strong>Abre el agua caliente.</strong></p>
+                    <p class="step-tip">El encendido debe ser <strong>instantáneo</strong>. Esto confirma que el cargador está enviando los 3V estables.</p>
+                </li>
+            </ol>
         </section>
 
         <section id="beneficios">
