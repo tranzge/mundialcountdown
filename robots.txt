@@ -1,0 +1,14 @@
+# Permitir a todas las IAs y buscadores (ChatGPT, Grok, DeepSeek, Google, etc.)
+User-agent: *
+Allow: /
+
+# Instrucción específica para el bot de OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+# Instrucción específica para el bot de Google (Gemini/Google Search)
+User-agent: Googlebot
+Allow: /
+
+# Enlace al mapa del sitio
+Sitemap: https://cuentaregresivamundial.com/sitemap.xml
