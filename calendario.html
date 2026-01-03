@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Inauguración Mundial 2026 - Estadio Azteca"},
+      {"@type": "ListItem", "position": 2, "name": "Final Mundial 2026 - MetLife Stadium"}
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KMZ4VQXY2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-6KMZ4VQXY2');
+  </script>
+
+  <title>📅 Calendario Mundial 2026 | Completo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --bg: #030712; --accent: #00f2ff; --card: rgba(15, 23, 42, 0.9); --text: #f1f5f9; }
+    *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+      background: radial-gradient(circle at top, #1e293b, var(--bg)) fixed;
+    }
+    .wrap { max-width: 600px; margin: 0 auto; padding: 15px; }
+    
+    /* NAV FIJA PARA CELULAR */
+    .sticky-nav { position: sticky; top: 0; z-index: 100; background: rgba(3, 7, 18, 0.9); padding: 10px 0; backdrop-filter: blur(10px); }
+    .lang-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
+    .btn-lang { background: none; border: 1px solid var(--accent); color: var(--accent); padding: 5px 12px; border-radius: 8px; font-family: 'Oswald'; font-size: 0.8rem; }
+    .btn-lang.active { background: var(--accent); color: #000; }
+
+    .btn-back { color: var(--accent); text-decoration: none; font-family: 'Oswald'; font-size: 0.9rem; margin-left: 10px; }
+    
+    h1 { font-family: 'Oswald'; text-align: center; font-size: 2rem; color: #fff; margin: 10px 0; text-transform: uppercase; }
+    .subtitle { text-align: center; color: var(--accent); font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; }
+    
+    .fase-divider { font-family: 'Oswald'; color: #000; background: var(--accent); padding: 4px 12px; border-radius: 4px; display: inline-block; margin: 25px 0 10px; font-size: 0.9rem; }
+    
+    /* TARJETAS OPTIMIZADAS PARA PULGAR */
+    .event-card { 
+      background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08); 
+      border-radius: 18px; padding: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 15px;
+    }
+    .date-badge { background: #000; color: var(--accent); min-width: 65px; padding: 8px; border-radius: 12px; text-align: center; font-family: 'Oswald'; border: 1px solid var(--accent); }
+    .date-badge .day { font-size: 1.2rem; font-weight: 900; display: block; }
+    .date-badge .month { font-size: 0.7rem; text-transform: uppercase; }
+    
+    .event-info { flex: 1; }
+    .event-info h3 { margin: 0; font-family: 'Oswald'; font-size: 1rem; color: #fff; line-height: 1.2; }
+    .event-info p { margin: 4px 0 0; font-size: 0.8rem; color: #94a3b8; }
+    .venue { font-size: 0.7rem; color: var(--accent); margin-top: 4px; display: block; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="sticky-nav">
+    <div class="lang-nav">
+      <button class="btn-lang active" id="es-btn" onclick="setLang('es')">ESP 🇲🇽</button>
+      <button class="btn-lang" id="en-btn" onclick="setLang('en')">ENG 🇺🇸</button>
+    </div>
+    <a href="index.html" class="btn-back">← VOLVER</a>
+</div>
+
+<div class="wrap">
+    <h1 id="txt-h1">CALENDARIO 2026</h1>
+    <div class="subtitle" id="txt-sub">TODAS LAS FECHAS CLAVE</div>
+
+    <div id="calendar-content"></div>
+
+    <footer style="text-align: center; margin: 40px 0; opacity: 0.4; font-size: 0.7rem;">
+      Actualizado: 3 de Enero, 2026<br>Fuente: FIFA Official Site
+    </footer>
+</div>
+
+<script>
+  let currentLang = 'es';
+
+  const langData = {
+    es: {
+      h1: "CALENDARIO 2026", sub: "TODAS LAS FECHAS CLAVE",
+      fases: ["FASE DE GRUPOS", "ELIMINATORIA DIRECTA", "LA GRAN FINAL"],
+      events: [
+        { d: "11", m: "Jun", t: "MÉXICO vs SUDÁFRICA", p: "Inauguración oficial del Mundial.", v: "📍 Estadio Azteca, CDMX" },
+        { d: "12", m: "Jun", t: "CANADÁ vs REPECHAJE", p: "Debut de los de la hoja de maple.", v: "📍 Toronto, Canadá" },
+        { d: "13", m: "Jun", t: "EE.UU. vs PARAGUAY", p: "Debut de la selección de las barras y estrellas.", v: "📍 SoFi Stadium, L.A." },
+        { d: "15", m: "Jun", t: "ESPAÑA vs CABO VERDE", p: "La Roja entra en escena.", v: "📍 Atlanta, Georgia" },
+        { d: "17", m: "Jun", t: "ARGENTINA vs ARGELIA", p: "Debut de la albiceleste.", v: "📍 Kansas City" },
+        { d: "19", m: "Jun", t: "MÉXICO vs COREA DEL SUR", p: "Segundo partido crucial para México.", v: "📍 Guadalajara, Jalisco" },
+        { d: "24", m: "Jun", t: "MÉXICO vs REPECHAJE", p: "Cierre de grupo para el Tri.", v: "📍 Estadio Azteca, CDMX" },
+        { d: "28", m: "Jun", t: "DIECISEISAVOS DE FINAL", p: "Inician las llaves de 32 equipos.", v: "📍 Sedes Múltiples" },
+        { d: "04", m: "Jul", t: "OCTAVOS DE FINAL", p: "Fútbol en el Día de la Independencia USA.", v: "📍 Houston / Filadelfia" },
+        { d: "09", m: "Jul", t: "CUARTOS DE FINAL", p: "Rumbo a la recta final.", v: "📍 Boston / Los Ángeles" },
+        { d: "14", m: "Jul", t: "SEMIFINALES", p: "Duelo por el pase a la gloria.", v: "📍 Dallas / Atlanta" },
+        { d: "19", m: "Jul", t: "GRAN FINAL 🏆", p: "El mundo conocerá al nuevo campeón.", v: "📍 MetLife Stadium, NY/NJ" }
+      ]
+    },
+    en: {
+      h1: "2026 SCHEDULE", sub: "ALL KEY DATES",
+      fases: ["GROUP STAGE", "KNOCKOUT STAGE", "THE GRAND FINAL"],
+      events: [
+        { d: "11", m: "Jun", t: "MEXICO vs SOUTH AFRICA", p: "Official World Cup Opening.", v: "📍 Azteca Stadium, CDMX" },
+        { d: "12", m: "Jun", t: "CANADA DEBUT", p: "The Maple Leafs start at home.", v: "📍 Toronto, Canada" },
+        { d: "13", m: "Jun", t: "USA vs PARAGUAY", p: "The Stars and Stripes debut in L.A.", v: "📍 SoFi Stadium, L.A." },
+        { d: "15", m: "Jun", t: "SPAIN DEBUT", p: "La Roja enters the tournament.", v: "📍 Atlanta, Georgia" },
+        { d: "17", m: "Jun", t: "ARGENTINA DEBUT", p: "The champions start their journey.", v: "📍 Kansas City" },
+        { d: "19", m: "Jun", t: "MEXICO vs SOUTH KOREA", p: "Crucial second match for Mexico.", v: "📍 Guadalajara, Mexico" },
+        { d: "24", m: "Jun", t: "MEXICO GROUP FINALE", p: "Final group match for the hosts.", v: "📍 Azteca Stadium, CDMX" },
+        { d: "28", m: "Jun", t: "ROUND OF 32", p: "Knockout rounds begin.", v: "📍 Multiple Venues" },
+        { d: "04", m: "Jul", t: "ROUND OF 16", p: "Matches on July 4th.", v: "📍 Houston / Philly" },
+        { d: "09", m: "Jul", t: "QUARTER-FINALS", p: "Road to the final stretch.", v: "📍 Boston / L.A." },
+        { d: "14", m: "Jul", t: "SEMI-FINALS", p: "Fight for the final spot.", v: "📍 Dallas / Atlanta" },
+        { d: "19", m: "Jul", t: "GRAND FINAL 🏆", p: "The world crowns a new champion.", v: "📍 MetLife Stadium, NY/NJ" }
+      ]
+    }
+  };
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('es-btn').classList.toggle('active', lang === 'es');
+    document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+    render();
+    gtag('event', 'calendar_lang', { 'lang': lang });
+  }
+
+  function render() {
+    const data = langData[currentLang];
+    document.getElementById('txt-h1').innerText = data.h1;
+    document.getElementById('txt-sub').innerText = data.sub;
+
+    let html = "";
+    data.events.forEach((e, i) => {
+      if(i === 0) html += `<div class="fase-divider">${data.fases[0]}</div>`;
+      if(i === 7) html += `<div class="fase-divider">${data.fases[1]}</div>`;
+      if(i === 11) html += `<div class="fase-divider">${data.fases[2]}</div>`;
+      
+      html += `
+        <div class="event-card">
+          <div class="date-badge"><span class="day">${e.d}</span><span class="month">${e.m}</span></div>
+          <div class="event-info">
+            <h3>${e.t}</h3>
+            <p>${e.p}</p>
+            <span class="venue">${e.v}</span>
+          </div>
+        </div>`;
+    });
+    document.getElementById('calendar-content').innerHTML = html;
+  }
+  render();
+</script>
+</body>
+</html>
