@@ -3,406 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Mundial 2026 | Conteo Oficial y Guía de Tecnología ⚽</title>
     
-    <title>Mundial 2026 | Cuenta Regresiva, Grupos y Datos Curiosos ⚽</title>
-    <meta name="description" content="¿Cuánto falta para el Mundial 2026? Mira los 12 grupos oficiales, el calendario y 30 datos curiosos que no sabías del mundial en México, USA y Canadá.">
-    <meta name="keywords" content="Mundial 2026, grupos mundial 2026, contador mundial, sedes mundial 2026, Mexico 2026, FIFA World Cup schedule">
-    
-    <meta property="og:title" content="⚽ ¿Ya viste los grupos del Mundial 2026?">
-    <meta property="og:description" content="Checa el contador en vivo y datos que te volarán la cabeza.">
-    <meta property="og:image" content="https://cuentaregresivamundial.com/preview.jpg">
-    <meta property="og:url" content="https://cuentaregresivamundial.com">
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KMZ4VQXY2"></script>
     <script>
-      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); gtag('config', 'G-6KMZ4VQXY2');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6KMZ4VQXY2');
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --neon-blue: #00f2ff; --neon-purple: #7000ff; --bg: #050505; --card: #121212; }
-        * { box-sizing: border-box; }
+        :root { 
+            --neon-blue: #00f2ff; 
+            --stadium-green: #00df82; 
+            --pitch-dark: #01160d; 
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body { 
-            background: var(--bg); color: white; font-family: 'Inter', sans-serif; margin: 0; 
-            text-align: center; background: radial-gradient(circle at top, #1a1a1a, #050505) fixed; 
-            line-height: 1.6;
-        }
-        
-        /* NAV */
-        .top-nav { width: 100%; padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
-        .nav-btn { color: var(--neon-blue); text-decoration: none; font-size: 0.75rem; font-weight: 900; border: 1px solid var(--neon-blue); padding: 10px 18px; border-radius: 10px; text-transform: uppercase; transition: 0.3s; }
-        .nav-btn:hover { background: var(--neon-blue); color: black; }
-        
-        .lang-switch { display: flex; background: #222; border-radius: 8px; padding: 2px; }
-        .lang-btn { background: none; border: none; color: #555; padding: 6px 14px; border-radius: 6px; font-size: 0.7rem; font-weight: 900; cursor: pointer; }
-        .lang-btn.active { background: var(--neon-blue); color: #000; }
-
-        /* HERO */
-        .hero { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
-        h1 { font-size: 3.5rem; font-weight: 900; margin: 0; background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -2px; }
-        
-        /* CONTADOR OPTIMIZADO: EL DÍA ES EL REY */
-        .counter-grid { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 20px; 
-            margin: 40px 0; 
-        }
-        
-        .unit-days { text-align: center; }
-        .unit-days span { 
-            display: block; 
-            font-size: 8rem; 
-            font-weight: 900; 
-            color: var(--neon-blue); 
-            line-height: 0.8;
-            text-shadow: 0 0 30px rgba(0,242,255,0.4);
-        }
-        .unit-days label { 
-            font-size: 1.2rem; 
+            background: var(--pitch-dark); 
             color: white; 
-            text-transform: uppercase; 
-            font-weight: 900; 
-            letter-spacing: 10px;
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.15), transparent);
+            background-attachment: fixed;
         }
 
-        .sub-counter {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-        }
-        .unit-small { 
-            background: var(--card); 
-            padding: 12px; 
-            border-radius: 15px; 
-            min-width: 80px; 
-            border: 1px solid #222; 
-        }
-        .unit-small span { 
-            display: block; 
-            font-size: 1.8rem; 
-            font-weight: 900; 
-            color: #fff; 
-            line-height: 1; 
-        }
-        .unit-small label { 
-            font-size: 0.6rem; 
-            color: var(--neon-blue); 
-            text-transform: uppercase; 
-            font-weight: bold; 
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: center; }
 
-        @media (max-width: 600px) {
-            .unit-days span { font-size: 6rem; }
-            .unit-small { min-width: 70px; }
-        }
+        /* HEADER */
+        h1 { font-family: 'Barlow Condensed'; font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 900; line-height: 0.9; text-transform: uppercase; background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* DATOS CURIOSOS */
-        .fact-container { 
-            background: var(--card); border-radius: 25px; padding: 35px; margin: 30px auto; 
-            border: 1px solid #333; cursor: pointer; transition: 0.3s; max-width: 600px;
-            box-shadow: 0 0 30px rgba(0,242,255,0.05); position: relative;
-        }
-        .fact-container:hover { border-color: var(--neon-blue); transform: translateY(-3px); }
-        .fact-container:active { transform: scale(0.97); }
-        #fact-text { font-size: 1.25rem; min-height: 120px; display: flex; align-items: center; justify-content: center; font-weight: 500; padding: 0 10px; }
-        .tap-hint { font-size: 0.75rem; color: var(--neon-purple); margin-top: 20px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
-
-        /* GRUPOS */
-        .groups-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; 
-        }
-        .group-card { background: var(--card); border-radius: 20px; padding: 20px; border: 1px solid #222; text-align: left; transition: 0.3s; }
-        .group-card:hover { border-color: var(--neon-blue); }
-        .group-card h3 { color: var(--neon-blue); margin: 0 0 15px 0; font-size: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 8px; display: flex; justify-content: space-between; }
-        .team { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
-
-        /* NUEVO BOTÓN BLANCO */
-        .btn-postal { 
-            display: inline-block; background: #ffffff; color: #000; padding: 18px 40px; 
-            border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1rem; 
-            margin: 30px 0; box-shadow: 0 8px 20px rgba(255,255,255,0.2); transition: 0.3s;
-            border: none; cursor: pointer; font-family: 'Inter', sans-serif;
-        }
-        .btn-postal:hover { transform: scale(1.05); background: var(--neon-blue); }
+        /* COUNTDOWN JERÁRQUICO */
+        .countdown-container { margin: 50px 0; }
         
-        footer { padding: 60px 20px; font-size: 0.75rem; color: #444; border-top: 1px solid #111; margin-top: 50px; }
-        .disclaimer { max-width: 600px; margin: 10px auto; line-height: 1.4; opacity: 0.6; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            #fact-text { font-size: 1.1rem; }
+        .days-hero { 
+            background: var(--glass); 
+            border: 1px solid var(--glass-border); 
+            padding: 40px; 
+            border-radius: 30px; 
+            display: inline-block; 
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
         }
+        .days-hero .num { font-size: 8rem; line-height: 1; color: var(--neon-blue); text-shadow: 0 0 30px rgba(0, 242, 255, 0.5); }
+        .days-hero .lab { font-size: 1.2rem; letter-spacing: 10px; color: var(--stadium-green); }
+
+        .sub-units { display: flex; justify-content: center; gap: 15px; }
+        .unit-small { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px; border-radius: 15px; min-width: 85px; }
+        .unit-small .num { font-size: 2.5rem; color: #fff; }
+        .unit-small .lab { font-size: 0.6rem; letter-spacing: 2px; opacity: 0.6; }
+
+        .num { font-family: 'Barlow Condensed'; font-weight: 900; display: block; }
+
+        /* MYTH BOX */
+        .myth-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 30px; border-radius: 24px; margin: 40px 0; position: relative; text-align: left; }
+        .myth-label { position: absolute; top: -12px; left: 20px; background: var(--pitch-dark); padding: 0 10px; font-size: 0.7rem; color: var(--neon-blue); border: 1px solid var(--neon-blue); border-radius: 5px; }
+
+        /* SECCIÓN PDF */
+        .pdf-card { background: linear-gradient(135deg, rgba(0, 223, 130, 0.15) 0%, rgba(0, 242, 255, 0.05) 100%); border: 1px solid var(--stadium-green); padding: 40px; border-radius: 30px; margin: 60px 0; }
+        .btn-pdf { background: var(--stadium-green); color: var(--pitch-dark); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; font-family: 'Barlow Condensed'; font-size: 1.4rem; display: inline-block; transition: 0.3s; }
+
+        /* FAQS */
+        .faq-section { text-align: left; margin-top: 80px; }
+        .faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 15px; margin-bottom: 12px; overflow: hidden; }
+        .faq-q { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; color: var(--neon-blue); }
+        .faq-a { padding: 0 20px 20px; font-size: 0.95rem; opacity: 0.8; display: none; line-height: 1.6; color: #ccc; }
+
+        .tools { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+        .btn-tool { background: none; border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 12px 30px; border-radius: 50px; cursor: pointer; text-decoration: none; font-weight: 700; }
+
+        footer { margin-top: 100px; padding-bottom: 60px; opacity: 0.3; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<div class="top-nav">
-    <div class="lang-switch">
-        <button id="btn-es" class="lang-btn active" onclick="changeLang('es')">ESP</button>
-        <button id="btn-en" class="lang-btn" onclick="changeLang('en')">ENG</button>
+<div class="container">
+    <header>
+        <h1>MUNDIAL 2026</h1>
+        <p style="letter-spacing: 5px; color: var(--stadium-green); font-weight: 900;">MÉXICO • USA • CANADÁ</p>
+    </header>
+
+    <div class="countdown-container">
+        <div class="days-hero">
+            <span class="num" id="d">000</span>
+            <span class="lab">DÍAS</span>
+        </div>
+        <div class="sub-units">
+            <div class="unit-small"><span class="num" id="h">00</span><span class="lab">HORAS</span></div>
+            <div class="unit-small"><span class="num" id="m">00</span><span class="lab">MIN</span></div>
+            <div class="unit-small"><span class="num" id="s">00</span><span class="lab">SEG</span></div>
+        </div>
     </div>
-    <a href="calendario.html" class="nav-btn" id="nav-cal">Calendario Oficial 🗓️</a>
+
+    <div class="tools">
+        <a href="calendario.html" class="btn-tool">📅 CALENDARIO</a>
+    </div>
+
+    <div class="myth-box">
+        <div class="myth-label">THE MYTH & THE MACHINE</div>
+        <p id="fact-text" style="font-size: 1.15rem; line-height: 1.6;">Cargando curiosidades...</p>
+    </div>
+
+    <div class="pdf-card">
+        <h2 style="font-family:'Barlow Condensed'; font-size: 2.5rem; margin:0;">GUÍA HISTÓRICA & TECH</h2>
+        <p style="margin: 20px 0;">Descarga el PDF sobre la evolución de 1930 a 2026.</p>
+        <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" target="_blank">📥 DESCARGAR GUÍA</a>
+    </div>
+
+    <div class="faq-section">
+        <h2 style="font-family:'Barlow Condensed'; font-size: 3rem; text-align: center; margin-bottom: 40px;">PREGUNTAS FRECUENTES (TRENDS)</h2>
+        <div id="faq-list">
+            </div>
+    </div>
+
+    <footer>WWW.CUENTAREGRESIVAMUNDIAL.COM | © 2026</footer>
 </div>
 
-<section class="hero">
-    <h1 id="txt-title">Mundial 2026</h1>
-    <p id="seo-h2" style="color:var(--neon-blue); font-weight:bold; letter-spacing:2px; margin-bottom:20px;">MÉXICO • USA • CANADÁ</p>
-
-    <div class="counter-grid">
-        <div class="unit-days">
-            <span id="d">000</span>
-            <label id="lbl-d">Días</label>
-        </div>
-
-        <div class="sub-counter">
-            <div class="unit-small"><span id="h">00</span><label id="lbl-h">Horas</label></div>
-            <div class="unit-small"><span id="m">00</span><label id="lbl-m">Minutos</label></div>
-            <div class="unit-small"><span id="s">00</span><label id="lbl-s">Segundos</label></div>
-        </div>
-    </div>
-
-    <div class="fact-container" onclick="nextFact()">
-        <span id="txt-sabias" style="color:var(--neon-blue); font-weight:900; font-size:0.8rem; text-transform:uppercase; letter-spacing:3px;">Dato Curioso</span>
-        <p id="fact-text">¿Sabías que el Estadio Azteca será el único en el mundo en inaugurar tres mundiales diferentes?</p>
-        <div class="tap-hint" id="txt-toca">Toca para descubrir otro dato 👆</div>
-    </div>
-
-    <button id="btn-share-postal" onclick="descargarPostal()" class="btn-postal">📸 DESCARGAR POSTAL DEL DÍA</button>
-</section>
-
-<h2 id="txt-grupos" style="font-size: 1.5rem; letter-spacing: 3px; margin: 50px 0 30px; font-weight: 900;">12 GRUPOS OFICIALES</h2>
-<div class="groups-grid" id="groups-list"></div>
-
-<footer>
-    <div class="disclaimer">
-        Este es un sitio web independiente creado por fans para fans. No estamos afiliados, asociados, autorizados ni respaldados oficialmente por la FIFA ni por ninguna de sus subsidiarias o afiliadas.
-    </div>
-    <p>© 2026 Cuenta Regresiva Mundial | Todos los datos son informativos.</p>
-</footer>
-
+<script src="datos_mundial.js"></script>
 <script>
-    const content = {
-        es: {
-            title: "MUNDIAL 2026", cal: "CALENDARIO 🗓️", grupos: "12 GRUPOS OFICIALES", sabias: "DATO MUNDIALISTA", toca: "TOCA PARA DESCUBRIR MÁS 👆", share: "📸 DESCARGAR POSTAL DEL DÍA",
-            units: ["Días", "Hrs", "Min", "Seg"],
-            facts: [
-                "¡Increíble! El Mundial 2026 será el primero en la historia en tener 104 partidos, lo que significa que habrá fútbol casi diario durante 39 días seguidos.",
-                "Dato de Oro: Se estima que la derrama económica total para México, USA y Canadá superará los 14 mil millones de dólares, el evento más caro de la historia.",
-                "¿Sabías que el Estadio Azteca reducirá su capacidad a 83,000 personas para cumplir con las nuevas zonas VIP y estándares de lujo exigidos por la FIFA?",
-                "Puro lujo: El SoFi Stadium de Los Ángeles es el estadio más caro del mundo (costó 5.5 mil millones) y será una de las joyas principales del torneo.",
-                "El viaje más largo: Un equipo podría tener que viajar más de 4,000 kilómetros entre un partido de fase de grupos y otro debido a la enorme distancia del continente.",
-                "¡Tecnología total! FIFA usará 'balones inteligentes' con sensores que envían datos 500 veces por segundo para detectar fueras de juego milimétricos.",
-                "Por primera vez, el torneo no se dividirá en 8 grupos, sino en 12 grupos de 4 selecciones cada uno. ¡Clasificarán hasta los mejores terceros!",
-                "Dato histórico: Marruecos será el primer país africano en organizar un mundial en conjunto, tras haber fallado en 5 intentos previos por solitario.",
-                "El MetLife Stadium de Nueva York/Nueva Jersey fue elegido para la Gran Final por su capacidad de albergar a más de 82,000 personas bajo seguridad extrema.",
-                "¡Cero emisiones! La FIFA se comprometió a que este sea el primer mundial 'Carbono Neutral' mediante el uso de energías limpias en todos los estadios.",
-                "¡Locura total! Este será el primer mundial en la historia con 48 selecciones, un 50% más que el mundial anterior.",
-                "¿Sabías que el Estadio Azteca se convertirá en el primero de la historia en inaugurar 3 mundiales distintos (1970, 1986 y 2026)?",
-                "El trofeo de la FIFA viajará más de 15,000 kilómetros solo entre las sedes de Vancouver y Ciudad de México.",
-                "Prepárate para el maratón: Se jugarán 104 partidos en 39 días. ¡Casi el doble de acción que antes!",
-                "Increíble: El MetLife Stadium de Nueva Jersey, sede de la final, no tiene pasto natural y deberán instalarlo solo para el torneo.",
-                "Por primera vez en la historia, 3 naciones organizan juntas el torneo. ¡Un continente unido por el balón!",
-                "Dato de oro: Se espera que este mundial genere 14 mil millones de dólares en ingresos, el más rico de la historia.",
-                "¡Qué viaje! Los equipos podrían enfrentar cambios de temperatura de 20°C entre sedes de Canadá y el calor de Monterrey.",
-                "El Estadio SoFi de Los Ángeles tuvo que ser modificado porque su cancha era muy angosta para los estándares de FIFA.",
-                "¿Sabías que habrá un nuevo formato con 12 grupos de 4 equipos? ¡Clasifican hasta los mejores terceros!",
-                "Dato loco: El mundial 2026 tendrá más ciudades sede (16) que el mundial de Uruguay 1930 tuvo de partidos totales (18).",
-                "El Estadio BBVA en Monterrey tiene una vista directa a las montañas, siendo nombrado el estadio con mejor paisaje por expertos.",
-                "¡Puro billete! El precio de los boletos en reventa para la final podría superar los 10,000 dólares.",
-                "Estados Unidos tendrá la mayor cantidad de partidos: 78 de los 104 juegos serán en territorio gringo.",
-                "La FIFA estima que 6 millones de fans viajarán entre los 3 países. ¡Una migración masiva de fútbol!",
-                "Dato histórico: Marruecos será el país con más intentos de ser sede (6) que finalmente logra estar en una organización conjunta.",
-                "¡Cuidado con el reloj! El mundial cruzará 4 zonas horarias distintas simultáneamente.",
-                "Ningún estadio nuevo fue construido desde cero para este mundial. ¡Pura remodelación de estadios de primer nivel!",
-                "La seguridad será masiva: Se planea usar inteligencia artificial para monitorear el flujo de gente en las 16 sedes.",
-                "¿Sabías que el logo del Mundial 2026 es el primero en usar una foto real del trofeo en lugar de un dibujo?",
-                "El Estadio Azteca reducirá su capacidad a 83,000 personas por las nuevas zonas VIP exigidas por FIFA.",
-                "Dato técnico: Se utilizarán más de 500 cámaras 4K por partido para la transmisión global más nítida de la historia.",
-                "¡Hambre de gol! Se estima que se consumirán 20 millones de hot dogs en los estadios durante el torneo.",
-                "Canadá nunca ha ganado un partido en un mundial masculino. ¿Lo lograrán en su propia casa en 2026?",
-                "El trofeo original de oro sólido de 18 quilates solo se entrega en la final, luego se devuelven con una réplica de bronce.",
-                "El diseño del calendario busca que los equipos no viajen más de 3,000 km entre sus partidos de fase de grupos.",
-                "El mundial 2026 durará una semana más que el mundial de Qatar 2022.",
-                "Dato curioso: El árbitro asistente de video (VAR) tendrá una central masiva en Dallas para monitorear todos los juegos.",
-                "Los estadios de la NFL en USA deben cambiar su nombre comercial durante el mundial (Ej: AT&T Stadium será Estadio Dallas).",
-                "¡El dato final! Se espera que 5 mil millones de personas vean al menos un minuto del mundial por TV o Internet."
-            ],
-            groups: [
-                {n: "A", flag: "🇲🇽", teams: ["México", "Sudáfrica", "Corea del Sur", "UEFA Play-off"]},
-                {n: "B", flag: "🇨🇦", teams: ["Canadá", "UEFA Play-off", "Qatar", "Suiza"]},
-                {n: "C", flag: "🇧🇷", teams: ["Brasil", "Marruecos", "Haití", "Escocia"]},
-                {n: "D", flag: "🇺🇸", teams: ["USA", "Paraguay", "Australia", "UEFA Play-off"]},
-                {n: "E", flag: "🇩🇪", teams: ["Alemania", "Curazao", "Costa de Marfil", "Ecuador"]},
-                {n: "F", flag: "🇳🇱", teams: ["P. Bajos", "Japón", "UEFA Play-off", "Túnez"]},
-                {n: "G", flag: "🇧🇪", teams: ["Bélgica", "Egipto", "Irán", "N. Zelanda"]},
-                {n: "H", flag: "🇪🇸", teams: ["España", "Cabo Verde", "Arabia Sau.", "Uruguay"]},
-                {n: "I", flag: "🇫🇷", teams: ["Francia", "Senegal", "Cont. Play-off", "Noruega"]},
-                {n: "J", flag: "🇦🇷", teams: ["Argentina", "Argelia", "Austria", "Jordania"]},
-                {n: "K", flag: "🇵🇹", teams: ["Portugal", "Cont. Play-off", "Uzbekistán", "Colombia"]},
-                {n: "L", flag: "🇬🇧", teams: ["Inglaterra", "Croacia", "Ghana", "Panamá"]}
-            ]
-        },
-        en: {
-            title: "WORLD CUP 2026", cal: "SCHEDULE 🗓️", grupos: "12 OFFICIAL GROUPS", sabias: "WORLD CUP FACT", toca: "TAP FOR NEXT FACT 👆", share: "📸 DOWNLOAD DAILY POSTAL",
-            units: ["Days", "Hrs", "Min", "Sec"],
-            facts: [
-                "Incredible! World Cup 2026 will be the first in history with 104 matches, meaning almost daily football for 39 consecutive days.",
-                "Golden Fact: The total economic impact for Mexico, USA, and Canada is estimated to exceed 14 billion dollars, the most expensive event ever.",
-                "Did you know Estadio Azteca will reduce its capacity to 83,000 to meet FIFA's new VIP zones and luxury standards?",
-                "Pure luxury: SoFi Stadium in LA is the world's most expensive stadium ($5.5 billion) and will be one of the tournament's main jewels.",
-                "The longest journey: A team might have to travel over 4,000 kilometers between group stage matches due to the continent's massive size.",
-                "Total tech! FIFA will use 'smart balls' with sensors sending data 500 times per second to detect millimetric offsides.",
-                "For the first time, the tournament won't have 8 groups but 12 groups of 4 teams each. Even the best third places will qualify!",
-                "Historical fact: Morocco will be the first African country to co-host a World Cup after 5 previous unsuccessful solo bids.",
-                "MetLife Stadium in NY/NJ was chosen for the Grand Final for its capacity to host over 82,000 people under extreme security.",
-                "Zero emissions! FIFA pledged this to be the first 'Carbon Neutral' World Cup by using clean energy in all stadiums.",
-                "Total madness! This will be the first World Cup in history with 48 teams, 50% more than before.",
-                "Did you know Estadio Azteca will be the first in history to host 3 different opening matches (1970, 1986, 2026)?",
-                "The FIFA trophy will travel over 15,000 kilometers just between Vancouver and Mexico City venues.",
-                "Prepare for a marathon: 104 matches in 39 days. Almost double the previous action!",
-                "Unbelievable: MetLife Stadium in NJ, the final's venue, has no natural grass and must install it for the tournament.",
-                "For the first time in history, 3 nations are hosting together. A continent united by the ball!",
-                "Golden fact: This World Cup is expected to generate $14 billion in revenue, the richest ever.",
-                "Climate shock! Teams could face 20°C temperature drops between Canada and Monterrey's heat.",
-                "SoFi Stadium in LA had to be modified because its field was too narrow for FIFA standards.",
-                "New format: 12 groups of 4 teams. Even the best 3rd places will qualify!",
-                "Crazy fact: The 2026 World Cup has more host cities (16) than the 1930 cup had total matches (18).",
-                "BBVA Stadium in Monterrey has a direct view of the mountains, named most scenic stadium by experts.",
-                "Big money! Resale tickets for the final could exceed $10,000.",
-                "USA will host the most matches: 78 out of 104 games will be on American soil.",
-                "FIFA estimates 6 million fans will travel between the 3 countries. A massive football migration!",
-                "Historical fact: Morocco will be the country with the most bids (6) to finally host a joint tournament.",
-                "Watch the clock! The World Cup will cross 4 different time zones simultaneously.",
-                "No brand new stadiums were built from scratch. Only top-tier renovations of existing icons!",
-                "Massive security: AI is planned to monitor crowd flow across all 16 host cities.",
-                "Did you know the 2026 logo is the first to use a real photo of the trophy instead of a drawing?",
-                "Estadio Azteca will reduce capacity to 83,000 due to new FIFA-mandated VIP zones.",
-                "Technical fact: Over 500 4K cameras per match will be used for the sharpest global broadcast ever.",
-                "Goal hunger! An estimated 20 million hot dogs will be consumed in stadiums during the tournament.",
-                "Canada has never won a men's World Cup match. Will they do it at home in 2026?",
-                "The original 18-karat solid gold trophy is only given at the final, then replaced with a replica.",
-                "The schedule is designed so teams don't travel more than 3,000 km between group matches.",
-                "World Cup 2026 will last one week longer than Qatar 2022.",
-                "Curious fact: The Video Assistant Referee (VAR) will have a massive central hub in Dallas.",
-                "NFL stadiums in the USA must drop commercial names (e.g., AT&T Stadium will be Dallas Stadium).",
-                "The final fact! 5 billion people are expected to watch at least one minute of the cup online or on TV."
-            ],
-            groups: [
-                {n: "A", flag: "🇲🇽", teams: ["Mexico", "South Africa", "S. Korea", "UEFA Play-off"]},
-                {n: "B", flag: "🇨🇦", teams: ["Canada", "UEFA Play-off", "Qatar", "Switzerland"]},
-                {n: "C", flag: "🇧🇷", teams: ["Brazil", "Morocco", "Haiti", "Scotland"]},
-                {n: "D", flag: "🇺🇸", teams: ["USA", "Paraguay", "Australia", "UEFA Play-off"]},
-                {n: "E", flag: "🇩🇪", teams: ["Germany", "Curacao", "Ivory Coast", "Ecuador"]},
-                {n: "F", flag: "🇳🇱", teams: ["Netherlands", "Japan", "UEFA Play-off", "Tunisia"]},
-                {n: "G", flag: "🇧🇪", teams: ["Belgium", "Egypt", "Iran", "N. Zealand"]},
-                {n: "H", flag: "🇪🇸", teams: ["Spain", "Cape Verde", "Saudi Arabia", "Uruguay"]},
-                {n: "I", flag: "🇫🇷", teams: ["France", "Senegal", "Cont. Play-off", "Norway"]},
-                {n: "J", flag: "🇦🇷", teams: ["Argentina", "Algeria", "Austria", "Jordan"]},
-                {n: "K", flag: "🇵🇹", teams: ["Portugal", "Cont. Play-off", "Uzbekistan", "Colombia"]},
-                {n: "L", flag: "🇬🇧", teams: ["England", "Croacia", "Ghana", "Panama"]}
-            ]
-        }
-    };
+    const faqs = [
+        ["¿Cómo registrarse para los boletos del Mundial 2026?", "Debes registrar tu interés en FIFA.com/tickets. La FIFA enviará notificaciones por correo sobre las fases de venta y sorteos aleatorios."],
+        ["¿Cuál es el precio de las entradas?", "Se espera que las entradas de categoría más económica ronden los $70 - $100 USD para residentes, similar a ediciones anteriores."],
+        ["¿Qué tecnología tendrá el balón oficial?", "Incluirá un sensor de 500Hz para detectar fueras de juego automáticos y proporcionar estadísticas de velocidad en tiempo real."],
+        ["¿Cuántos partidos habrá en México?", "México tendrá 13 partidos: 5 en CDMX (Estadio Azteca), 4 en Monterrey (Estadio BBVA) y 4 en Guadalajara (Estadio Akron)."],
+        ["¿Cómo es el nuevo formato de 48 equipos?", "Habrá 12 grupos de 4 selecciones. Clasifican los dos primeros y los 8 mejores terceros a dieciseisavos de final."],
+        ["¿Habrá hologramas en los estadios?", "Sedes como Dallas planean proyecciones holográficas de jugadores en la cancha durante las ceremonias previas."],
+        ["¿Es necesaria Visa para viajar entre las sedes?", "Para cruzar entre México, USA y Canadá se requieren los documentos legales vigentes (como la Visa Americana para mexicanos)."],
+        ["¿Dónde será la Gran Final?", "El 19 de julio de 2026 en el MetLife Stadium de Nueva Jersey (área de Nueva York)."]
+    ];
 
-    let currentLang = 'es';
-    let factIdx = Math.floor(Math.random() * content.es.facts.length);
-
-    function changeLang(l) {
-        currentLang = l;
-        document.getElementById('btn-es').className = l === 'es' ? 'lang-btn active' : 'lang-btn';
-        document.getElementById('btn-en').className = l === 'en' ? 'lang-btn active' : 'lang-btn';
-        document.documentElement.lang = l;
-        render();
-    }
-
-    function nextFact() {
-        const fList = content[currentLang].facts;
-        factIdx = (factIdx + 1) % fList.length;
-        const el = document.getElementById('fact-text');
-        el.style.opacity = 0;
-        setTimeout(() => {
-            el.innerText = fList[factIdx];
-            el.style.opacity = 1;
-        }, 150);
-        gtag('event', 'next_fact', { 'index': factIdx });
-    }
-
-    function render() {
-        const d = content[currentLang];
-        document.getElementById('txt-title').innerText = d.title;
-        document.getElementById('nav-cal').innerText = d.cal;
-        document.getElementById('txt-grupos').innerText = d.grupos;
-        document.getElementById('txt-sabias').innerText = d.sabias;
-        document.getElementById('txt-toca').innerText = d.toca;
-        document.getElementById('btn-share-postal').innerText = d.share;
-        document.getElementById('lbl-d').innerText = d.units[0];
-        document.getElementById('lbl-h').innerText = d.units[1];
-        document.getElementById('lbl-m').innerText = d.units[2];
-        document.getElementById('lbl-s').innerText = d.units[3];
-        document.getElementById('fact-text').innerText = d.facts[factIdx];
-
-        let gHtml = "";
-        d.groups.forEach(g => {
-            gHtml += `<div class="group-card"><h3>GRUPO ${g.n} <span>${g.flag}</span></h3>`;
-            g.teams.forEach((t, i) => { 
-                gHtml += `<div class="team"><span>${i+1}. ${t}</span></div>`; 
-            });
-            gHtml += `</div>`;
+    function loadFaqs() {
+        let html = '';
+        faqs.forEach(f => {
+            html += `<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">${f[0]} <span>+</span></div><div class="faq-a">${f[1]}</div></div>`;
         });
-        document.getElementById('groups-list').innerHTML = gHtml;
+        document.getElementById('faq-list').innerHTML = html;
+    }
+
+    function toggleFaq(el) {
+        const ans = el.nextElementSibling;
+        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function rotar() {
+        if(typeof data !== 'undefined' && data.facts) {
+            document.getElementById('fact-text').innerText = data.facts[Math.floor(Math.random()*data.facts.length)];
+        }
     }
 
     const target = new Date("June 11, 2026 12:00:00").getTime();
-    function count() {
-        const now = new Date().getTime();
-        const diff = target - now;
-        if (diff < 0) return;
-        document.getElementById('d').innerText = Math.floor(diff / (1000*60*60*24));
-        document.getElementById('h').innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-        document.getElementById('m').innerText = Math.floor((diff % (1000*60*60)) / (1000*60));
-        document.getElementById('s').innerText = Math.floor((diff % (1000*60)) / 1000);
-    }
-    setInterval(count, 1000);
-    count();
-    render();
+    setInterval(() => {
+        const d = target - new Date().getTime();
+        document.getElementById('d').innerText = Math.floor(d / 86400000);
+        document.getElementById('h').innerText = String(Math.floor((d % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('m').innerText = String(Math.floor((d % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('s').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
+    }, 1000);
 
-    // FUNCIÓN PARA GENERAR Y DESCARGAR LA IMAGEN
-    function descargarPostal() {
-        const diasActuales = document.getElementById('d').innerText;
-        const datoActual = document.getElementById('fact-text').innerText;
-        const lblDias = document.getElementById('lbl-d').innerText;
-
-        // Crear contenedor oculto para la postal
-        const box = document.createElement('div');
-        box.style = "width:400px; padding:40px 20px; background:radial-gradient(circle, #0d1b2a 0%, #000 100%); text-align:center; color:white; font-family:'Inter', sans-serif; position:fixed; top:-9999px;";
-        
-        box.innerHTML = `
-            <div style="font-size:1.2rem; font-weight:700; opacity:0.6; margin-bottom:20px; letter-spacing:4px;">MUNDIAL 2026</div>
-            <div style="font-size:9rem; font-weight:900; color:#00f2ff; line-height:0.8; text-shadow:0 0 30px rgba(0,242,255,0.5);">${diasActuales}</div>
-            <div style="font-size:1.5rem; letter-spacing:10px; font-weight:900; margin-bottom:35px; color:#fff; text-transform:uppercase;">${lblDias}</div>
-            <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:20px; border-left:5px solid #7000ff; text-align:left; margin:0 10px;">
-                <p style="margin:0; font-size:1.2rem; line-height:1.4; font-weight:400;">${datoActual}</p>
-            </div>
-            <div style="margin-top:40px; font-size:0.9rem; font-weight:bold; opacity:0.4; letter-spacing:1px;">WWW.CUENTAREGRESIVAMUNDIAL.COM</div>
-        `;
-
-        document.body.appendChild(box);
-
-        html2canvas(box, { backgroundColor: '#000000', scale: 2 }).then(canvas => {
-            const a = document.createElement('a');
-            a.href = canvas.toDataURL("image/png");
-            a.download = `mundial2026-falta-${diasActuales}-dias.png`;
-            a.click();
-            document.body.removeChild(box);
-        });
-    }
+    window.onload = () => { loadFaqs(); rotar(); setInterval(rotar, 6000); };
 </script>
 </body>
 </html>
