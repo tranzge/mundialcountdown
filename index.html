@@ -3,131 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-    <title>Mundial 2026 | Conteo Oficial y Guía de Tecnología ⚽</title>
+    <title>Mundial 2026 | Conteo Oficial y Guía Tech ⚽</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KMZ4VQXY2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6KMZ4VQXY2');
+      gtag('js', new Date()); gtag('config', 'G-6KMZ4VQXY2');
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        :root { 
-            --neon-blue: #00f2ff; 
-            --stadium-green: #00df82; 
-            --pitch-dark: #01160d; 
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        body { 
-            background: var(--pitch-dark); 
-            color: white; 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.15), transparent);
-            background-attachment: fixed;
-        }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: center; }
-
-        /* HEADER */
-        h1 { font-family: 'Barlow Condensed'; font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; font-weight: 900; line-height: 0.9; text-transform: uppercase; background: linear-gradient(to bottom, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        /* COUNTDOWN JERÁRQUICO */
-        .countdown-container { margin: 50px 0; }
+        :root { --blue: #00f2ff; --green: #00df82; --dark: #01160d; --glass: rgba(255,255,255,0.05); }
+        body { background: var(--dark); color: white; font-family: 'Inter', sans-serif; margin: 0; text-align: center; background-image: radial-gradient(circle at top, rgba(0,242,255,0.1), transparent); }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         
-        .days-hero { 
-            background: var(--glass); 
-            border: 1px solid var(--glass-border); 
-            padding: 40px; 
-            border-radius: 30px; 
-            display: inline-block; 
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
-        }
-        .days-hero .num { font-size: 8rem; line-height: 1; color: var(--neon-blue); text-shadow: 0 0 30px rgba(0, 242, 255, 0.5); }
-        .days-hero .lab { font-size: 1.2rem; letter-spacing: 10px; color: var(--stadium-green); }
+        /* CONTADOR JERÁRQUICO */
+        .days-box { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 30px; display: inline-block; width: 100%; max-width: 450px; margin: 30px 0 20px 0; box-shadow: 0 0 30px rgba(0, 242, 255, 0.15); }
+        .days-box .num { font-size: 9rem; font-family: 'Barlow Condensed'; font-weight: 900; color: var(--blue); line-height: 1; display: block; }
+        .days-box .lab { font-size: 1.2rem; letter-spacing: 12px; color: var(--green); font-weight: 900; }
+        
+        .sub-units { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .unit { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; min-width: 90px; }
+        .unit .num { font-size: 2.5rem; font-family: 'Barlow Condensed'; font-weight: 900; display: block; }
+        .unit .lab { font-size: 0.65rem; opacity: 0.6; letter-spacing: 2px; }
 
-        .sub-units { display: flex; justify-content: center; gap: 15px; }
-        .unit-small { background: var(--glass); border: 1px solid var(--glass-border); padding: 15px; border-radius: 15px; min-width: 85px; }
-        .unit-small .num { font-size: 2.5rem; color: #fff; }
-        .unit-small .lab { font-size: 0.6rem; letter-spacing: 2px; opacity: 0.6; }
+        .myth-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; margin: 40px 0; text-align: left; position: relative; }
+        .myth-label { position: absolute; top: -12px; left: 20px; background: var(--dark); padding: 0 10px; font-size: 0.7rem; color: var(--blue); border: 1px solid var(--blue); border-radius: 5px; font-weight: 900; }
+        
+        .faq-section { text-align: left; margin-top: 60px; }
+        .faq-item { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; margin-bottom: 12px; }
+        .faq-q { padding: 20px; cursor: pointer; color: var(--blue); font-weight: 700; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .faq-a { padding: 20px; font-size: 0.95rem; opacity: 0.8; display: none; line-height: 1.6; color: #ccc; }
 
-        .num { font-family: 'Barlow Condensed'; font-weight: 900; display: block; }
-
-        /* MYTH BOX */
-        .myth-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 30px; border-radius: 24px; margin: 40px 0; position: relative; text-align: left; }
-        .myth-label { position: absolute; top: -12px; left: 20px; background: var(--pitch-dark); padding: 0 10px; font-size: 0.7rem; color: var(--neon-blue); border: 1px solid var(--neon-blue); border-radius: 5px; }
-
-        /* SECCIÓN PDF */
-        .pdf-card { background: linear-gradient(135deg, rgba(0, 223, 130, 0.15) 0%, rgba(0, 242, 255, 0.05) 100%); border: 1px solid var(--stadium-green); padding: 40px; border-radius: 30px; margin: 60px 0; }
-        .btn-pdf { background: var(--stadium-green); color: var(--pitch-dark); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; font-family: 'Barlow Condensed'; font-size: 1.4rem; display: inline-block; transition: 0.3s; }
-
-        /* FAQS */
-        .faq-section { text-align: left; margin-top: 80px; }
-        .faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 15px; margin-bottom: 12px; overflow: hidden; }
-        .faq-q { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; color: var(--neon-blue); }
-        .faq-a { padding: 0 20px 20px; font-size: 0.95rem; opacity: 0.8; display: none; line-height: 1.6; color: #ccc; }
-
-        .tools { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
-        .btn-tool { background: none; border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 12px 30px; border-radius: 50px; cursor: pointer; text-decoration: none; font-weight: 700; }
-
-        footer { margin-top: 100px; padding-bottom: 60px; opacity: 0.3; font-size: 0.8rem; }
+        .btn-pdf { background: var(--green); color: var(--dark); padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; font-family: 'Barlow Condensed'; display: inline-block; margin: 40px 0; font-size: 1.4rem; transition: 0.3s; }
+        .btn-pdf:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--green); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>MUNDIAL 2026</h1>
-        <p style="letter-spacing: 5px; color: var(--stadium-green); font-weight: 900;">MÉXICO • USA • CANADÁ</p>
-    </header>
-
-    <div class="countdown-container">
-        <div class="days-hero">
+    <h1 style="font-family:'Barlow Condensed'; font-size: 4rem; margin:0;">MUNDIAL 2026</h1>
+    
+    <div class="countdown">
+        <div class="days-box">
             <span class="num" id="d">000</span>
             <span class="lab">DÍAS</span>
         </div>
         <div class="sub-units">
-            <div class="unit-small"><span class="num" id="h">00</span><span class="lab">HORAS</span></div>
-            <div class="unit-small"><span class="num" id="m">00</span><span class="lab">MIN</span></div>
-            <div class="unit-small"><span class="num" id="s">00</span><span class="lab">SEG</span></div>
+            <div class="unit"><span class="num" id="h">00</span><span class="lab">HORAS</span></div>
+            <div class="unit"><span class="num" id="m">00</span><span class="lab">MIN</span></div>
+            <div class="unit"><span class="num" id="s">00</span><span class="lab">SEG</span></div>
         </div>
     </div>
 
-    <div class="tools">
-        <a href="calendario.html" class="btn-tool">📅 CALENDARIO</a>
-    </div>
-
     <div class="myth-box">
-        <div class="myth-label">THE MYTH & THE MACHINE</div>
-        <p id="fact-text" style="font-size: 1.15rem; line-height: 1.6;">Cargando curiosidades...</p>
+        <div class="myth-label">SABÍAS QUE...</div>
+        <p id="fact-text">Cargando datos históricos...</p>
     </div>
 
-    <div class="pdf-card">
-        <h2 style="font-family:'Barlow Condensed'; font-size: 2.5rem; margin:0;">GUÍA HISTÓRICA & TECH</h2>
-        <p style="margin: 20px 0;">Descarga el PDF sobre la evolución de 1930 a 2026.</p>
-        <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" target="_blank">📥 DESCARGAR GUÍA</a>
-    </div>
+    <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" target="_blank">📥 DESCARGAR GUÍA PDF</a>
 
     <div class="faq-section">
-        <h2 style="font-family:'Barlow Condensed'; font-size: 3rem; text-align: center; margin-bottom: 40px;">PREGUNTAS FRECUENTES (TRENDS)</h2>
-        <div id="faq-list">
-            </div>
+        <h2 style="font-family:'Barlow Condensed'; font-size: 3rem; text-align: center; margin-bottom: 40px;">DUDAS FRECUENTES (TRENDS)</h2>
+        <div id="faq-list"></div>
     </div>
-
-    <footer>WWW.CUENTAREGRESIVAMUNDIAL.COM | © 2026</footer>
 </div>
 
 <script src="datos_mundial.js"></script>
 <script>
+    // LÓGICA DE DATOS (CORREGIDA)
+    function rotar() {
+        if(typeof data !== 'undefined' && data.facts) {
+            const txt = data.facts[Math.floor(Math.random() * data.facts.length)];
+            const el = document.getElementById('fact-text');
+            el.style.opacity = 0;
+            setTimeout(() => {
+                el.innerText = txt;
+                el.style.opacity = 1;
+            }, 500);
+        }
+    }
+
+    // FAQs BASADAS EN TENDENCIAS DE GOOGLE
     const faqs = [
         ["¿Cómo registrarse para los boletos del Mundial 2026?", "Debes registrar tu interés en FIFA.com/tickets. La FIFA enviará notificaciones por correo sobre las fases de venta y sorteos aleatorios."],
         ["¿Cuál es el precio de las entradas?", "Se espera que las entradas de categoría más económica ronden los $70 - $100 USD para residentes, similar a ediciones anteriores."],
@@ -138,26 +96,15 @@
         ["¿Es necesaria Visa para viajar entre las sedes?", "Para cruzar entre México, USA y Canadá se requieren los documentos legales vigentes (como la Visa Americana para mexicanos)."],
         ["¿Dónde será la Gran Final?", "El 19 de julio de 2026 en el MetLife Stadium de Nueva Jersey (área de Nueva York)."]
     ];
+    
+    document.getElementById('faq-list').innerHTML = faqs.map(f => `
+        <div class="faq-item">
+            <div class="faq-q" onclick="const a=this.nextElementSibling; a.style.display=a.style.display==='block'?'none':'block'">${f[0]} <span>+</span></div>
+            <div class="faq-a">${f[1]}</div>
+        </div>
+    `).join('');
 
-    function loadFaqs() {
-        let html = '';
-        faqs.forEach(f => {
-            html += `<div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">${f[0]} <span>+</span></div><div class="faq-a">${f[1]}</div></div>`;
-        });
-        document.getElementById('faq-list').innerHTML = html;
-    }
-
-    function toggleFaq(el) {
-        const ans = el.nextElementSibling;
-        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function rotar() {
-        if(typeof data !== 'undefined' && data.facts) {
-            document.getElementById('fact-text').innerText = data.facts[Math.floor(Math.random()*data.facts.length)];
-        }
-    }
-
+    // RELOJ
     const target = new Date("June 11, 2026 12:00:00").getTime();
     setInterval(() => {
         const d = target - new Date().getTime();
@@ -167,7 +114,7 @@
         document.getElementById('s').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
     }, 1000);
 
-    window.onload = () => { loadFaqs(); rotar(); setInterval(rotar, 6000); };
+    window.onload = () => { rotar(); setInterval(rotar, 12000); };
 </script>
 </body>
 </html>
