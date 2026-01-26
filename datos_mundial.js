@@ -57,4 +57,5 @@ var data = {
         "El aire acondicionado del estadio de Houston puede bajar la temperatura 15 grados en solo 10 minutos. ❄️🏟️",
         "El himno oficial de 2026 mezclará ritmos regionales mexicanos, pop estadounidense y folk canadiense. 🎶🌎"
     ]
-}
+
+};
