@@ -15,83 +15,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { overflow-x: hidden; width: 100%; -webkit-text-size-adjust: 100%; }
         :root { --blue: #00f2ff; --green: #00df82; --dark: #01160d; --glass: rgba(255,255,255,0.08); }
 
         body { 
             background: var(--dark); color: white; font-family: 'Inter', sans-serif; 
             background-image: radial-gradient(circle at top, rgba(0,242,255,0.12), transparent);
-            overflow-x: hidden; line-height: 1.6;
-            display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
+            line-height: 1.6;
         }
 
-        .container { 
-            width: 100%; max-width: 500px; padding: 20px; text-align: center; 
-            display: flex; flex-direction: column; align-items: center;
+        .container { width: 100%; max-width: 480px; margin: 0 auto; padding: 20px; text-align: center; }
+
+        .lang-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .btn-lang { 
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
+            color: white; padding: 8px 12px; border-radius: 8px; cursor: pointer; 
+            font-size: 0.7rem; font-weight: 700; transition: 0.3s;
         }
+        .btn-lang.active { border-color: var(--green); color: var(--green); background: rgba(0,223,130,0.1); }
 
-        /* SELECTOR DE IDIOMA */
-        .lang-selector { margin-bottom: 20px; display: flex; justify-content: center; gap: 8px; width: 100%; }
-        .btn-lang { background: none; border: 1px solid rgba(255,255,255,0.1); color: white; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; opacity: 0.5; transition: 0.3s; }
-        .btn-lang.active { opacity: 1; border-color: var(--green); color: var(--green); background: rgba(0,223,130,0.1); }
+        h1 { font-family: 'Barlow Condensed'; font-size: 2.8rem; text-transform: uppercase; margin-bottom: 10px; }
 
-        h1 { font-family: 'Barlow Condensed'; font-size: 3rem; margin: 20px 0; text-transform: uppercase; width: 100%; }
-
-        /* CONTADOR HERO CENTRADO */
         .countdown-hero {
             background: var(--glass); border: 1px solid rgba(255,255,255,0.12); border-radius: 35px;
-            padding: 40px 10px; margin: 25px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            width: 100%; display: flex; flex-direction: column; align-items: center;
+            padding: 35px 10px; margin: 20px 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        .days-main { width: 100%; }
         .days-main .num {
-            font-size: clamp(7rem, 25vw, 9.5rem); font-family: 'Barlow Condensed'; font-weight: 900;
+            font-size: clamp(6.5rem, 25vw, 9.5rem); 
+            font-family: 'Barlow Condensed'; font-weight: 900;
             color: var(--blue); line-height: 0.8; display: block; text-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
         }
-        .days-main .lab { font-size: 1.3rem; letter-spacing: 12px; color: var(--green); font-weight: 900; margin-top: 15px; display: block; }
+        .days-main .lab { font-size: 1.2rem; letter-spacing: 10px; color: var(--green); font-weight: 900; margin-top: 10px; display: block; }
 
-        .sub-units { display: flex; justify-content: space-evenly; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 25px; width: 90%; }
-        .unit .num { font-size: 2.3rem; font-family: 'Barlow Condensed'; font-weight: 900; display: block; color: #fff; }
-        .unit .lab { font-size: 0.65rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; }
+        .sub-units { display: flex; justify-content: space-around; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 20px; }
+        .unit .num { font-size: 2.2rem; font-family: 'Barlow Condensed'; font-weight: 900; }
+        .unit .lab { font-size: 0.6rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* MYTH BOX */
-        .myth-box {
-            background: rgba(255,255,255,0.03); border-left: 4px solid var(--blue);
-            padding: 25px; border-radius: 0 20px 20px 0; margin: 35px 0; text-align: left; width: 100%;
+        /* BOTONES PRINCIPALES */
+        .btn-cal {
+            background: none; border: 2px solid var(--blue); color: var(--blue);
+            padding: 16px; border-radius: 50px; text-decoration: none;
+            font-weight: 900; font-family: 'Barlow Condensed'; font-size: 1.2rem;
+            display: block; text-transform: uppercase; transition: 0.3s; margin-bottom: 20px;
         }
-        #fact-text { font-size: 1rem; font-style: italic; color: #eee; transition: opacity 0.5s; }
 
-        /* SECCIÓN PDF */
-        .pdf-box {
-            background: linear-gradient(145deg, rgba(0, 223, 130, 0.2), rgba(0, 242, 255, 0.1));
-            border: 1px solid var(--green); border-radius: 25px; padding: 30px 20px; margin: 40px 0; width: 100%;
+        .pdf-teaser {
+            background: linear-gradient(135deg, rgba(0, 223, 130, 0.2) 0%, rgba(0, 242, 255, 0.1) 100%);
+            border: 1px solid var(--green); border-radius: 30px; padding: 30px 20px; margin: 20px 0;
         }
         .btn-pdf { 
             background: var(--green); color: var(--dark); padding: 18px; border-radius: 50px; 
             text-decoration: none; font-weight: 900; font-family: 'Barlow Condensed'; 
-            font-size: 1.4rem; display: block; width: 100%; text-transform: uppercase; 
-            box-shadow: 0 10px 25px rgba(0, 223, 130, 0.3); transition: 0.3s;
+            font-size: 1.4rem; display: block; text-transform: uppercase; 
+            box-shadow: 0 10px 30px rgba(0, 223, 130, 0.4);
         }
-        .btn-pdf:hover { transform: scale(1.02); }
 
-        /* FAQS */
-        .faq-container { width: 100%; text-align: left; }
-        .faq-item { background: rgba(255,255,255,0.05); margin-bottom: 12px; border-radius: 15px; width: 100%; }
-        .faq-q { padding: 20px; font-size: 0.95rem; font-weight: 700; color: var(--blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .myth-box {
+            background: rgba(255,255,255,0.03); border-left: 4px solid var(--blue);
+            padding: 20px; border-radius: 0 20px 20px 0; margin: 35px 0; text-align: left;
+        }
+        #fact-text { font-size: 1rem; font-style: italic; color: #eee; }
+
+        .faq-item { background: rgba(255,255,255,0.05); margin-bottom: 10px; border-radius: 15px; text-align: left; }
+        .faq-q { padding: 20px; font-size: 0.95rem; font-weight: 700; color: var(--blue); cursor: pointer; display: flex; justify-content: space-between; }
         .faq-a { padding: 0 20px 20px; font-size: 0.9rem; display: none; color: #ccc; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
 
-        footer { margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.5; font-size: 0.75rem; width: 100%; }
+        footer { margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.5; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="lang-selector">
+    <nav class="lang-nav">
         <button class="btn-lang active" onclick="setLang('es')">ESPAÑOL</button>
         <button class="btn-lang" onclick="setLang('en')">ENGLISH</button>
         <button class="btn-lang" onclick="setLang('fr')">FRANÇAIS</button>
-    </div>
+    </nav>
 
-    <h1>MUNDIAL 2026</h1>
+    <h1>Mundial 2026</h1>
     
     <div class="countdown-hero">
         <div class="days-main">
@@ -105,19 +106,23 @@
         </div>
     </div>
 
+    <a href="calendario.html" class="btn-cal" id="btn-cal">📅 Ver Calendario Completo</a>
+
+    <div class="pdf-teaser">
+        <h2 style="font-family:'Barlow Condensed'; font-size: 1.8rem; margin-bottom: 10px;">The Myth & The Machine</h2>
+        <p id="pdf-p" style="font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8;"></p>
+        <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" id="pdf-btn">📥</a>
+    </div>
+
     <div class="myth-box">
         <p id="fact-text">Cargando...</p>
     </div>
 
-    <div class="pdf-box">
-        <p id="pdf-text" style="font-size: 0.9rem; margin-bottom: 20px; opacity: 0.9;">Descarga la guía exclusiva "The Myth & The Machine" sobre la tecnología del Mundial.</p>
-        <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" target="_blank" id="pdf-btn">📥 DESCARGAR PDF</a>
-    </div>
-
-    <div id="faq-list" class="faq-container"></div>
+    <div id="faq-list"></div>
 
     <footer>
-        <p>© 2026 CUENTAREGRESIVAMUNDIAL.COM</p>
+        <p>MÉXICO • USA • CANADÁ</p>
+        <p style="margin-top:10px;">© 2026 CUENTAREGRESIVAMUNDIAL.COM</p>
     </footer>
 </div>
 
@@ -125,9 +130,10 @@
 <script>
     let idiomaActual = 'es';
     const content = {
-es: {
+        es: {
             labDays: "DÍAS", labHours: "HRS", labMin: "MIN", labSec: "SEG",
-            pdfText: "Descarga la guía exclusiva \"The Myth & The Machine\" sobre la tecnología del Mundial.",
+            btnCal: "📅 Ver Calendario Completo",
+            pdfP: "Descarga la guía exclusiva \"The Myth & The Machine\" sobre la tecnología del Mundial.",
             pdfBtn: "📥 DESCARGAR PDF",
             faqs: [
                 ["¿Cómo registrarse para los boletos?", "Debes registrar tu interés en FIFA.com/tickets. La FIFA enviará notificaciones por correo sobre las fases de venta y sorteos aleatorios."],
@@ -142,7 +148,8 @@ es: {
         },
         en: {
             labDays: "DAYS", labHours: "HRS", labMin: "MIN", labSec: "SEC",
-            pdfText: "Download the exclusive guide \"The Myth & The Machine\" on World Cup technology.",
+            btnCal: "📅 View Full Schedule",
+            pdfP: "Download the exclusive guide \"The Myth & The Machine\" on World Cup technology.",
             pdfBtn: "📥 DOWNLOAD PDF",
             faqs: [
                 ["How to register for tickets?", "Register your interest at FIFA.com/tickets. FIFA will send email notifications about sales phases and random draws."],
@@ -157,11 +164,12 @@ es: {
         },
         fr: {
             labDays: "JOURS", labHours: "HRS", labMin: "MIN", labSec: "SEC",
-            pdfText: "Téléchargez le guide exclusif \"The Myth & The Machine\" sur la technologie de la Coupe du Monde.",
+            btnCal: "📅 Calendrier Complet",
+            pdfP: "Téléchargez le guide exclusif \"The Myth & The Machine\" sur la technologie de la Coupe du Monde.",
             pdfBtn: "📥 TÉLÉCHARGER PDF",
             faqs: [
                 ["Comment s'inscrire ?", "Inscrivez-vous sur FIFA.com/tickets. La FIFA enverra des notifications par e-mail sur les phases de vente et les tirages au sort."],
-                ["Quel est le prix des billets ?", "Les billets les moins chers devraient coûter environ 70 à 100 USD pour los résidents, comme lors des éditions précédentes."],
+                ["Quel est le prix des billets ?", "Les billets les moins chers devraient coûter environ 70 à 100 USD pour les résidents, comme lors des éditions précédentes."],
                 ["Quelle technologie pour le ballon ?", "Il comprendra un capteur 500Hz pour détecter les hors-jeu automatiques et fournir des statistiques de vitesse en temps réel."],
                 ["Combien de matchs au Mexique ?", "Le Mexique accueillera 13 matchs : 5 à Mexico (Stade Azteca), 4 à Monterrey (Stade BBVA) et 4 à Guadalajara (Stade Akron)."],
                 ["Quel est le format à 48 équipes ?", "Il y aura 12 groupes de 4 équipes. Les deux premiers et les 8 meilleurs troisièmes se qualifient pour les seizièmes de finale."],
@@ -174,18 +182,14 @@ es: {
 
     function setLang(lang) {
         idiomaActual = lang;
-        document.querySelectorAll('.btn-lang').forEach(b => {
-            const isMatch = (lang === 'es' && b.innerText.includes('ESPA')) || 
-                            (lang === 'en' && b.innerText.includes('ENGL')) || 
-                            (lang === 'fr' && b.innerText.includes('FRAN'));
-            b.classList.toggle('active', isMatch);
-        });
+        document.querySelectorAll('.btn-lang').forEach(b => b.classList.toggle('active', b.innerText.toLowerCase().includes(lang === 'es' ? 'espa' : lang === 'en' ? 'eng' : 'fran')));
         const d = content[lang];
         document.getElementById('lab-days').innerText = d.labDays;
         document.getElementById('lab-hours').innerText = d.labHours;
         document.getElementById('lab-min').innerText = d.labMin;
         document.getElementById('lab-sec').innerText = d.labSec;
-        document.getElementById('pdf-text').innerText = d.pdfText;
+        document.getElementById('btn-cal').innerText = d.btnCal;
+        document.getElementById('pdf-p').innerText = d.pdfP;
         document.getElementById('pdf-btn').innerText = d.pdfBtn;
         
         document.getElementById('faq-list').innerHTML = d.faqs.map(f => `
@@ -205,7 +209,7 @@ es: {
                 const list = data[idiomaActual];
                 el.innerText = list[Math.floor(Math.random() * list.length)];
                 el.style.opacity = 1;
-            }, 500);
+            }, 400);
         }
     }
 
@@ -218,7 +222,7 @@ es: {
         document.getElementById('s').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
     }, 1000);
 
-    window.onload = () => { setLang('es'); setInterval(rotar, 5000); };
+    window.onload = () => { setLang('es'); setInterval(rotar, 12000); };
 </script>
 </body>
 </html>
