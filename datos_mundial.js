@@ -1,3 +1,4 @@
+var data = {
 es: {
             labDays: "DÍAS", labHours: "HRS", labMin: "MIN", labSec: "SEG",
             pdfText: "Descarga la guía exclusiva \"The Myth & The Machine\" sobre la tecnología del Mundial.",
@@ -43,3 +44,4 @@ es: {
                 ["Où se jouera la finale ?", "Le 19 juillet 2026 au MetLife Stadium dans le New Jersey (région de New York)."]
             ]
         }
+
