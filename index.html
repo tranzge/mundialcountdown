@@ -14,16 +14,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* RESET & RESPONSIVE FIX */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { overflow-x: hidden; width: 100%; -webkit-text-size-adjust: 100%; }
-
-        :root { 
-            --blue: #00f2ff; 
-            --green: #00df82; 
-            --dark: #01160d; 
-            --glass: rgba(255,255,255,0.08); 
-        }
+        :root { --blue: #00f2ff; --green: #00df82; --dark: #01160d; --glass: rgba(255,255,255,0.08); }
 
         body { 
             background: var(--dark); color: white; font-family: 'Inter', sans-serif; 
@@ -31,15 +24,9 @@
             line-height: 1.6;
         }
 
-        /* CONTENEDOR FLUIDO */
-        .container { 
-            width: 100%; 
-            max-width: 900px; /* Se expande en Web */
-            margin: 0 auto; 
-            padding: 20px; 
-            text-align: center; 
-        }
+        .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 20px; text-align: center; }
 
+        /* NAVEGACIÓN IDIOMAS */
         .lang-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
         .btn-lang { 
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
@@ -48,7 +35,7 @@
         }
         .btn-lang.active { border-color: var(--green); color: var(--green); background: rgba(0,223,130,0.1); }
 
-        h1 { font-family: 'Barlow Condensed'; font-size: clamp(2.5rem, 8vw, 4.5rem); text-transform: uppercase; margin-bottom: 5px; }
+        h1 { font-family: 'Barlow Condensed'; font-size: clamp(2.5rem, 8vw, 4.5rem); text-transform: uppercase; }
 
         /* CONTADOR HERO */
         .countdown-hero {
@@ -63,61 +50,48 @@
         .days-main .lab { font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 12px; color: var(--green); font-weight: 900; margin-top: 15px; display: block; }
 
         .sub-units { 
-            display: flex; justify-content: center; gap: clamp(10px, 5vw, 40px);
+            display: flex; justify-content: center; gap: clamp(15px, 5vw, 45px);
             border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 20px; 
         }
         .unit .num { font-size: clamp(2rem, 5vw, 3.5rem); font-family: 'Barlow Condensed'; font-weight: 900; }
         .unit .lab { font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* SECCIÓN DE ACCIÓN */
-        .main-actions { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 20px; 
-            margin: 40px 0; 
-        }
-        /* En Web se ponen uno al lado del otro */
-        @media (min-width: 768px) {
-            .main-actions { grid-template-columns: 1fr 1fr; align-items: stretch; }
-        }
+        /* ACCIONES */
+        .main-actions { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 40px 0; }
+        @media (min-width: 768px) { .main-actions { grid-template-columns: 1fr 1fr; } }
 
         .btn-cal {
             background: none; border: 2px solid var(--blue); color: var(--blue);
             padding: 20px; border-radius: 20px; text-decoration: none;
             font-weight: 900; font-family: 'Barlow Condensed'; font-size: 1.4rem;
-            display: flex; align-items: center; justify-content: center; text-transform: uppercase; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; text-transform: uppercase;
         }
-        .btn-cal:hover { background: rgba(0, 242, 255, 0.1); transform: translateY(-3px); }
 
         .pdf-teaser {
             background: linear-gradient(135deg, rgba(0, 223, 130, 0.2) 0%, rgba(0, 242, 255, 0.1) 100%);
             border: 1px solid var(--green); border-radius: 20px; padding: 25px;
-            display: flex; flex-direction: column; justify-content: center;
         }
         .btn-pdf { 
             background: var(--green); color: var(--dark); padding: 15px; border-radius: 50px; 
             text-decoration: none; font-weight: 900; font-family: 'Barlow Condensed'; 
-            font-size: 1.2rem; display: block; text-transform: uppercase; 
-            box-shadow: 0 10px 20px rgba(0, 223, 130, 0.3); transition: 0.3s;
+            font-size: 1.2rem; display: block; text-transform: uppercase;
         }
-        .btn-pdf:hover { transform: scale(1.05); }
 
-        /* MYTH BOX */
+        /* CURIOBOX */
         .myth-box {
             background: rgba(255,255,255,0.03); border-left: 5px solid var(--blue);
-            padding: 30px; border-radius: 0 20px 20px 0; margin: 40px 0; text-align: left;
+            padding: 30px; border-radius: 0 20px 20px 0; margin: 40px 0; text-align: left; min-height: 120px;
         }
-        #fact-text { font-size: 1.1rem; font-style: italic; color: #eee; }
+        #fact-text { font-size: 1.1rem; font-style: italic; color: #eee; transition: opacity 0.5s; }
 
-        /* FAQS */
         .faq-grid { display: grid; grid-template-columns: 1fr; gap: 15px; text-align: left; }
         @media (min-width: 768px) { .faq-grid { grid-template-columns: 1fr 1fr; } }
 
-        .faq-item { background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; height: fit-content; }
+        .faq-item { background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; }
         .faq-q { padding: 20px; font-size: 1rem; font-weight: 700; color: var(--blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .faq-a { padding: 0 20px 20px; font-size: 0.95rem; display: none; color: #ccc; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
 
-        footer { margin-top: 80px; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.5; font-size: 0.8rem; letter-spacing: 3px; }
+        footer { margin-top: 80px; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.5; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -145,16 +119,15 @@
 
     <div class="main-actions">
         <a href="calendario.html" class="btn-cal" id="btn-cal">📅 Ver Calendario Completo</a>
-        
         <div class="pdf-teaser">
-            <h3 id="pdf-h" style="font-family:'Barlow Condensed'; font-size: 1.6rem; margin-bottom: 10px; color: var(--green);">The Myth & The Machine</h3>
+            <h3 style="font-family:'Barlow Condensed'; font-size: 1.6rem; margin-bottom: 10px; color: var(--green);">The Myth & The Machine</h3>
             <p id="pdf-p" style="font-size: 0.9rem; margin-bottom: 20px; opacity: 0.8;"></p>
             <a href="The_Myth_and_The_Machine.pdf" class="btn-pdf" id="pdf-btn">📥 Descargar PDF</a>
         </div>
     </div>
 
     <div class="myth-box">
-        <p id="fact-text">Cargando la historia del mundial...</p>
+        <p id="fact-text">Cargando curiosidades...</p>
     </div>
 
     <div id="faq-list" class="faq-grid"></div>
@@ -166,81 +139,88 @@
 </div>
 
 <script src="datos_mundial.js"></script>
+
 <script>
     let idiomaActual = 'es';
-    const content = {
+    
+    const translations = {
         es: {
             labDays: "DÍAS", labHours: "HRS", labMin: "MIN", labSec: "SEG",
             btnCal: "📅 Ver Calendario Completo",
             pdfP: "Descarga la guía exclusiva sobre la tecnología del Mundial.",
             pdfBtn: "📥 DESCARGAR PDF",
             faqs: [
-                ["¿Cómo registrarse para los boletos?", "Debes registrar tu interés en FIFA.com/tickets. La FIFA enviará notificaciones sobre fases de venta."],
-                ["¿Cuál es el precio de las entradas?", "Se espera que las entradas de categoría más económica ronden los $70 - $100 USD para residentes."],
-                ["¿Qué tecnología tendrá el balón?", "Un sensor de 500Hz para detectar fueras de juego automáticos y estadísticas en tiempo real."],
-                ["¿Cuántos partidos habrá en México?", "México tendrá 13 partidos: 5 en CDMX (Azteca), 4 en Monterrey y 4 en Guadalajara."],
-                ["¿Cómo es el nuevo formato?", "12 grupos de 4 selecciones. Clasifican los dos primeros y los 8 mejores terceros a dieciseisavos."],
-                ["¿Habrá hologramas?", "Sedes como Dallas planean proyecciones holográficas de jugadores en la cancha durante las ceremonias."],
-                ["¿Es necesaria Visa?", "Para cruzar entre México, USA y Canadá se requieren los documentos legales vigentes (como la Visa Americana)."],
-                ["¿Dónde será la Gran Final?", "El 19 de julio de 2026 en el MetLife Stadium de Nueva Jersey."]
+                ["¿Cómo registrarse para los boletos?", "Debes registrar tu interés en FIFA.com/tickets. La FIFA enviará notificaciones por correo sobre las fases de venta y sorteos aleatorios."],
+                ["¿Cuál es el precio de las entradas?", "Se espera que las entradas de categoría más económica ronden los $70 - $100 USD para residentes, similar a ediciones anteriores."],
+                ["¿Qué tecnología tendrá el balón oficial?", "Incluirá un sensor de 500Hz para detectar fueras de juego automáticos y proporcionar estadísticas de velocidad en tiempo real."],
+                ["¿Cuántos partidos habrá en México?", "México tendrá 13 partidos: 5 en CDMX (Estadio Azteca), 4 en Monterrey (Estadio BBVA) y 4 en Guadalajara (Estadio Akron)."],
+                ["¿Cómo es el nuevo formato de 48 equipos?", "Habrá 12 grupos de 4 selecciones. Clasifican los dos primeros y los 8 mejores terceros a dieciseisavos de final."],
+                ["¿Habrá hologramas en los estadios?", "Sedes como Dallas planean proyecciones holográficas de jugadores en la cancha durante las ceremonias previas."],
+                ["¿Es necesaria Visa para viajar entre las sedes?", "Para cruzar entre México, USA y Canadá se requieren los documentos legales vigentes (como la Visa Americana para mexicanos)."],
+                ["¿Dónde será la Gran Final?", "El 19 de julio de 2026 en el MetLife Stadium de Nueva Jersey (área de Nueva York)."]
             ]
         },
         en: {
             labDays: "DAYS", labHours: "HRS", labMin: "MIN", labSec: "SEC",
             btnCal: "📅 View Full Schedule",
-            pdfP: "Download the exclusive guide on World Cup technology.",
+            pdfP: "Download the exclusive guide \"The Myth & The Machine\" on World Cup technology.",
             pdfBtn: "📥 DOWNLOAD PDF",
             faqs: [
-                ["How to register for tickets?", "Register at FIFA.com/tickets. FIFA will send email notifications about sales phases."],
-                ["What is the ticket price?", "Cheapest tickets are expected to be around $70 - $100 USD for residents."],
-                ["What tech will the ball have?", "A 500Hz sensor to detect automated offsides and provide real-time speed statistics."],
-                ["How many matches in Mexico?", "Mexico will host 13 matches: 5 in CDMX, 4 in Monterrey, and 4 in Guadalajara."],
-                ["How is the new format?", "12 groups of 4 teams. Top two and 8 best third-placed advance to the Round of 32."],
-                ["Will there be holograms?", "Venues like Dallas plan 3D holographic projections of players during pre-game ceremonies."],
-                ["Is a Visa required?", "Valid legal documents are required to travel between Mexico, USA, and Canada."],
+                ["How to register for tickets?", "Register your interest at FIFA.com/tickets. FIFA will send email notifications about sales phases and random draws."],
+                ["What is the ticket price?", "Cheapest tickets are expected to be around $70 - $100 USD for residents, similar to previous editions."],
+                ["What tech will the ball have?", "It will include a 500Hz sensor to detect automated offsides and provide real-time speed statistics."],
+                ["How many matches in Mexico?", "Mexico will host 13 matches: 5 in CDMX (Azteca Stadium), 4 in Monterrey (BBVA Stadium), and 4 in Guadalajara (Akron Stadium)."],
+                ["How is the 48-team format?", "There will be 12 groups of 4 teams. The top two and the 8 best third-placed teams advance to the Round of 32."],
+                ["Will there be holograms?", "Venues like Dallas plan 3D holographic projections of players on the field during pre-game ceremonies."],
+                ["Is a Visa required for travel?", "Valid legal documents (such as a US Visa for Mexicans) are required to travel between Mexico, USA, and Canada."],
                 ["Where is the Grand Final?", "July 19, 2026, at MetLife Stadium in New Jersey (New York Area)."]
             ]
         },
         fr: {
             labDays: "JOURS", labHours: "HRS", labMin: "MIN", labSec: "SEC",
             btnCal: "📅 Calendrier Complet",
-            pdfP: "Téléchargez le guide exclusif sur la technologie de la Coupe du Monde.",
+            pdfP: "Téléchargez le guide exclusif \"The Myth & The Machine\" sur la technologie de la Coupe du Monde.",
             pdfBtn: "📥 TÉLÉCHARGER PDF",
             faqs: [
-                ["Comment s'inscrire ?", "Inscrivez-vous sur FIFA.com/tickets. La FIFA enverra des notifications par e-mail."],
-                ["Quel est le prix des billets ?", "Les billets les moins chers devraient coûter environ 70 à 100 USD pour les résidents."],
-                ["Quelle technologie ?", "Un capteur 500Hz pour détecter les hors-jeu automatiques et les statistiques."],
-                ["Combien de matchs au Mexique ?", "Le Mexique accueillera 13 matchs : 5 à Mexico, 4 à Monterrey et 4 à Guadalajara."],
-                ["Quel est le format ?", "12 groupes de 4 équipes. Les deux premiers et les 8 meilleurs troisièmes se qualifient."],
-                ["Des hologrammes ?", "Des sites comme Dallas prévoient des projections holographiques lors des cérémonies."],
-                ["Visa nécessaire ?", "Des documents légaux valides sont requis pour voyager entre le Mexique, les USA et le Canada."],
-                ["Où est la finale ?", "Le 19 juillet 2026 au MetLife Stadium dans le New Jersey."]
+                ["Comment s'inscrire ?", "Inscrivez-vous sur FIFA.com/tickets. La FIFA enverra des notifications par e-mail sur les phases de vente et les tirages au sort."],
+                ["Quel est le prix des billets ?", "Les billets les moins chers devraient coûter environ 70 à 100 USD pour les résidents, comme lors des éditions précédentes."],
+                ["Quelle technologie pour le ballon ?", "Il comprendra un capteur 500Hz pour détecter les hors-jeu automatiques et fournir des statistiques de vitesse en temps réel."],
+                ["Combien de matchs au Mexique ?", "Le Mexique accueillera 13 matchs : 5 à Mexico (Stade Azteca), 4 à Monterrey (Stade BBVA) et 4 à Guadalajara (Stade Akron)."],
+                ["Quel est le format à 48 équipes ?", "Il y aura 12 groupes de 4 équipes. Les deux premiers et les 8 meilleurs troisièmes se qualifient pour les seizièmes de finale."],
+                ["Des hologrammes dans les stades ?", "Des sites comme Dallas prévoient des projections holographiques de joueurs sur le terrain lors des cérémonies d'avant-match."],
+                ["Un visa est-il nécessaire ?", "Des documents légaux valides (comme le visa américain pour les Mexicains) sont requis pour voyager entre le Mexique, les USA et le Canada."],
+                ["Où se jouera la finale ?", "Le 19 juillet 2026 au MetLife Stadium dans le New Jersey (région de New York)."]
             ]
         }
     };
 
     function setLang(lang) {
         idiomaActual = lang;
-        document.querySelectorAll('.btn-lang').forEach(b => b.classList.toggle('active', b.innerText.toLowerCase().includes(lang === 'es' ? 'espa' : lang === 'en' ? 'eng' : 'fran')));
-        const d = content[lang];
-        document.getElementById('lab-days').innerText = d.labDays;
-        document.getElementById('lab-hours').innerText = d.labHours;
-        document.getElementById('lab-min').innerText = d.labMin;
-        document.getElementById('lab-sec').innerText = d.labSec;
-        document.getElementById('btn-cal').innerText = d.btnCal;
-        document.getElementById('pdf-p').innerText = d.pdfP;
-        document.getElementById('pdf-btn').innerText = d.pdfBtn;
-        
-        document.getElementById('faq-list').innerHTML = d.faqs.map(f => `
+        document.querySelectorAll('.btn-lang').forEach(b => {
+            b.classList.toggle('active', b.innerText.toLowerCase().includes(lang === 'es' ? 'espa' : lang === 'en' ? 'eng' : 'fran'));
+        });
+
+        const t = translations[lang];
+        document.getElementById('lab-days').innerText = t.labDays;
+        document.getElementById('lab-hours').innerText = t.labHours;
+        document.getElementById('lab-min').innerText = t.labMin;
+        document.getElementById('lab-sec').innerText = t.labSec;
+        document.getElementById('btn-cal').innerText = t.btnCal;
+        document.getElementById('pdf-p').innerText = t.pdfP;
+        document.getElementById('pdf-btn').innerText = t.pdfBtn;
+
+        document.getElementById('faq-list').innerHTML = t.faqs.map(f => `
             <div class="faq-item">
                 <div class="faq-q" onclick="const a=this.nextElementSibling; a.style.display=a.style.display==='block'?'none':'block'">${f[0]} <span>+</span></div>
                 <div class="faq-a">${f[1]}</div>
             </div>
         `).join('');
+        
         rotar();
     }
 
     function rotar() {
+        // CORRECCIÓN CLAVE: Acceder a data[idiomaActual]
         if(typeof data !== 'undefined' && data[idiomaActual]) {
             const el = document.getElementById('fact-text');
             el.style.opacity = 0;
@@ -261,7 +241,10 @@
         document.getElementById('s').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
     }, 1000);
 
-    window.onload = () => { setLang('es'); setInterval(rotar, 12000); };
+    window.onload = () => { 
+        setLang('es'); 
+        setInterval(rotar, 7000); 
+    };
 </script>
 </body>
 </html>
