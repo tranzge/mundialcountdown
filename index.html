@@ -2,400 +2,556 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundial 2026 | Centro de Pasión</title>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6KMZ4VQXY2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); gtag('config', 'G-6KMZ4VQXY2');
-    </script>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;600&family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO & Metadata -->
+    <title>Mundial 2026 | Cuenta Regresiva Oficial y Reto Arcade</title>
+    <meta name="description" content="¿Cuánto falta para el Mundial 2026? Mira la cuenta regresiva exacta y juega al reto arcade de dominadas. Optimizado para móvil y PC.">
+    <link rel="canonical" href="https://cuentaregresivamundial.com/">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:ital,wght@1,900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --neon-green: #39FF14; }
-        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #FFFFFF; overflow-x: hidden; }
-        h1, h2, h3, h4, .font-oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        .font-tactical { font-family: 'Chakra Petch', sans-serif; }
-        
-        .neon-glow { text-shadow: 0 0 25px rgba(57, 255, 20, 0.7); }
-        .stadium-bg { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.2), rgba(0,0,0,1)), 
-                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000'); 
-            background-size: cover; background-position: center; 
-        }
-        
-        .led-panel {
-            background: rgba(0, 0, 0, 0.9);
-            border: 3px solid var(--neon-green);
-            box-shadow: 0 0 40px rgba(57, 255, 20, 0.3);
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #ffff00;
+            --neon-red: #ff3131;
+            --bg-dark: #050512;
         }
 
-        .fact-display {
-            min-height: 180px;
+        .seo-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; touch-action: none; }
+
+        body {
+            background-color: #000;
+            background-image: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .podcast-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-top: 4px solid var(--neon-green);
-            transition: all 0.3s ease;
-        }
-        .podcast-card:hover { background: rgba(57, 255, 20, 0.05); transform: translateY(-5px); }
-
-        /* Estilo para los reproductores de audio en navegadores webkit */
-        audio::-webkit-media-controls-panel { background-color: var(--neon-green); }
-        audio::-webkit-media-controls-play-button,
-        audio::-webkit-media-controls-current-time-display,
-        audio::-webkit-media-controls-time-remaining-display,
-        audio::-webkit-media-controls-timeline,
-        audio::-webkit-media-controls-volume-slider,
-        audio::-webkit-media-controls-mute-button {
-            filter: invert(1);
-        }
-
-        .btn-neon {
-            background-color: var(--neon-green);
-            color: black;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            overflow: hidden;
             text-transform: uppercase;
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 0.1em;
         }
-        .btn-neon:hover { background-color: white; transform: scale(1.05); }
 
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        /* Gabinete Arcade Responsivo */
+        #cabinet {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            height: 100%;
+            max-height: 920px;
+            background-color: var(--bg-dark);
+            border: 8px solid #1a1a1a;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 100px rgba(0, 242, 255, 0.2);
+        }
+
+        #cabinet.extreme {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 100px rgba(255, 49, 49, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            #cabinet {
+                height: 95vh;
+                border-radius: 24px;
+                border: 14px solid #222;
+            }
+        }
+
+        /* Efecto CRT Scanlines */
+        #cabinet::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 500;
+        }
+
+        canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 400;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hidden { display: none !important; }
+
+        /* ESTILO PUMP IT UP / DDR PARA NÚMEROS */
+        .pump-ui-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            color: #fff;
+            line-height: 0.9;
+            display: inline-block;
+            transform: skewX(-15deg);
+            letter-spacing: -2px;
+            /* Triple Borde Style */
+            -webkit-text-stroke: 3px #000;
+            filter: drop-shadow(0 0 10px var(--glow-color, var(--neon-pink))) 
+                    drop-shadow(4px 4px 0px #000);
+        }
+
+        /* Pantalla de Inicio - Contador Espaciado */
+        .intro-header { margin-bottom: 70px; width: 100%; }
+        .days-label-top { font-size: 12px; color: var(--neon-cyan); letter-spacing: 8px; margin-bottom: 5px; display: block; }
+        .days-val { 
+            font-size: clamp(110px, 28vw, 160px); 
+            margin: 40px 0; 
+            --glow-color: var(--neon-pink);
+        }
+        .days-label-bot { font-size: 14px; color: var(--neon-cyan); letter-spacing: 6px; display: block; }
+
+        .rank-box {
+            width: 90%;
+            border: 2px solid var(--neon-cyan);
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            margin-bottom: 40px;
+        }
+        .rank-item { display: flex; justify-content: space-between; font-size: 8px; margin-bottom: 8px; opacity: 0.8; }
+
+        .btn-start {
+            background: var(--neon-pink);
+            color: #fff;
+            padding: 22px 45px;
+            font-family: inherit;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 25px var(--neon-pink);
+            animation: pulse-btn 1s infinite;
+        }
+        @keyframes pulse-btn { 50% { transform: scale(1.08); background: var(--neon-cyan); box-shadow: 0 0 25px var(--neon-cyan); } }
+
+        /* HUD JUEGO */
+        .hud {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 300;
+        }
+
+        .hud-label { font-size: 8px; color: var(--neon-cyan); margin-bottom: 8px; display: block;}
+        .hud-val { font-size: 40px; --glow-color: var(--neon-cyan); }
+        .hud-val.best { font-size: 28px; --glow-color: var(--neon-yellow); }
+
+        .lives { display: flex; gap: 6px; margin-top: 12px; }
+        .heart { width: 16px; height: 16px; fill: var(--neon-pink); filter: drop-shadow(0 0 5px var(--neon-pink)); }
+
+        /* Resultado del Cromo */
+        #cromo-output { width: 270px; height: 360px; border: 4px solid #fff; margin-bottom: 15px; display: none; box-shadow: 0 0 40px rgba(255,255,255,0.4); }
+        #cromo-output img { width: 100%; height: 100%; display: block; }
+        .action-btns { display: flex; gap: 12px; margin-top: 15px; }
+        .btn-small { background: transparent; border: 1px solid #fff; color: #fff; font-family: inherit; font-size: 8px; padding: 12px; cursor: pointer; }
+        
+        #name-entry { background: transparent; border: 3px solid #fff; color: var(--neon-yellow); font-family: inherit; font-size: 22px; text-align: center; width: 240px; margin: 20px 0; outline: none; }
+        #flash { position: absolute; inset: 0; background: #fff; z-index: 1000; opacity: 0; pointer-events: none; }
+        .toast { position: absolute; bottom: 35px; background: var(--neon-cyan); color: #000; padding: 12px; font-size: 8px; display: none; z-index: 2000; }
     </style>
 </head>
 <body>
-    <div id="root"></div>
 
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <header class="seo-hidden">
+        <h1>Mundial 2026: Cuenta Regresiva y Reto Arcade Pro</h1>
+        <p>Consulta cuánto falta para el Mundial 2026. Juega al simulador de dominadas en cuentaregresivamundial.com.</p>
+    </header>
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+    <div id="flash"></div>
 
-        const App = () => {
-            const [timeLeft, setTimeLeft] = useState({ dias: 0, horas: 0, min: 0, seg: 0 });
-            const [currentFact, setCurrentFact] = useState(0);
+    <div id="cabinet">
+        <!-- HUD JUEGO -->
+        <div class="hud">
+            <div>
+                <span class="hud-label">SCORE</span>
+                <span id="score-cur" class="pump-ui-text hud-val">00</span>
+                <div class="lives" id="lives-container"></div>
+            </div>
+            <div style="text-align: right;">
+                <span class="hud-label">RECORD</span>
+                <span id="score-best" class="pump-ui-text hud-val best">00</span>
+                <div id="diff-tag" style="font-size: 7px; color: var(--neon-yellow); margin-top: 10px;">LEVEL 1</div>
+            </div>
+        </div>
 
-            const datosCuriosos = [
-                "En 1930, el árbitro John Langenus exigió un seguro de vida y un barco listo para escapar.",
-                "Héctor Castro 'El Manco Divino' anotó en la final de 1930 a pesar de faltarle un antebrazo.",
-                "Ottorino Barassi ocultó el trofeo Jules Rimet en una caja de zapatos bajo su cama para salvarlo de los nazis.",
-                "México usó uniformes color guinda en 1930, no verde.",
-                "El balón de 2026 tendrá sensores 5G con latencia menor a 1ms.",
-                "India renunció al Mundial de 1950 porque no les permitieron jugar descalzos.",
-                "El estadio de Seattle es el más ruidoso del mundo (137.6 decibelios).",
-                "Mussolini eligió personalmente a los árbitros de Italia 1934.",
-		"México no jugó de verde en el debut de 1930; usaron uniformes color guinda (rojo oscuro). 🇲🇽⚽",
-		"Héctor Castro fue campeón con Uruguay en 1930 anotando en la final sin un antebrazo. 🇺🇾💪",
-		"El mexicano Manuel Rosas hizo el primer autogol y el primer gol de penal en un Mundial. 🥅📋",
-		"Mussolini eligió personalmente a los árbitros de Italia 1934. 🇮🇹🤨",
-		"Luis Monti es el único en jugar dos finales con países distintos: Argentina e Italia. 🇦🇷🇮🇹",
-		"Indonesia participó como 'Indias Orientales Neerlandesas' y solo disputó un partido. 🇮🇩🗺️",
-		"Leônidas marcó un gol descalzo en el lodo contra Polonia; el árbitro no se dio cuenta. 🇧🇷👣",
-		"En la II Guerra Mundial, el trofeo se ocultó en una caja de zapatos bajo una cama. 🏆👟",
-		"India renunció a 1950 porque la FIFA les prohibió jugar descalzos por reglamento. 🇮🇳🚫",
-		"El autor del gol con el que EE.UU. venció a Inglaterra en 1950 era un lavaplatos haitiano. 🇺🇸🍽️",
-		"Brasil prohibió su uniforme blanco tras el Maracanazo, naciendo la icónica Verdeamarela. 🇧🇷🟡",
-		"La final de 1954 es la única donde un equipo empezó ganando 2-0 y terminó perdiendo. 🇭🇺🇩🇪",
-		"Suiza 1954 tiene el récord de mayor promedio de gol: 5.38 por partido. ⚽🔥",
-		"Juan Hohberg (Uruguay) sufrió un infarto festejando un gol y volvió a jugar reanimado. 🇺🇾🩺",
-		"Un psicólogo dijo que Pelé era 'infantil' y no debía ir al mundial de 1958. 🇧🇷🧠",
-		"Brasil ganó en 1958 con camisetas azules compradas en una tienda local a última hora. 🇧🇷👕",
-		"Just Fontaine anotó 13 goles en 1958 usando las botas prestadas de un compañero. 🇫🇷👟",
-		"La 'Batalla de Santiago' tuvo la primera expulsión a los 12 segundos del partido. 🇨🇱🇮🇹",
-		"El colombiano Marcos Coll anotó el único gol olímpico en la historia de los Mundiales. 🇨🇴🎯",
-		"Italia perdió contra Corea del Norte en el '66 y fue recibida con tomates podridos. 🇮🇹🍅",
-		"El perro Pickles encontró el trofeo robado en 1966 envuelto en periódico en un arbusto. 🐶🏆",
-		"1966 fue el último mundial sin tarjetas; los castigos eran solo verbales. 🗣️🟨",
-		"El Salvador y Honduras jugaron la eliminatoria en medio de una guerra real. 🇸🇻🇭🇳",
-		"1970 fue el primer mundial con cambios de jugadores y tarjetas de colores. 🔄🟥",
-		"El 'no gol' de Pelé desde media cancha contra Checoslovaquia es la falla más famosa. 🇧🇷🥅",
-		"Pelé y Bobby Moore crearon el símbolo del Fair Play al intercambiar camisetas en 1970. 🤝👕",
-		"Israel representó a Asia en 1970; hoy pertenece a la UEFA por razones políticas. 🇮🇱🗺️",
-		"México estrenó el sistema de penales en 1970, pero no se usaron hasta 1982. 🇲🇽🥅",
-		"Mario Zagallo fue el primero en ser campeón del mundo como jugador y como técnico. 🇧🇷🏆",
-		"En 1974, un jugador de Zaire pateó el balón antes que el rival por no saber las reglas. 🇨🇩⚽",
-		"Los hermanos Hoeness jugaron el mundial, pero para las dos Alemanias distintas. 🇩🇪👬",
-		"Francia jugó contra Hungría en el '78 con la camiseta de un club local (C.A. Kimberley). 🇫🇷👕",
-		"Argentina es el único campeón que perdió un partido en fase de grupos y ganó la copa. 🇦🇷🏆",
-		"Un jeque de Kuwait bajó a la cancha en 1982 y logró que anularan un gol de Francia. 🇰🇼🧐",
-		"Norman Whiteside debutó a los 17 años y 41 días, quitándole el récord a Pelé. ☘️👶",
-		"Argentina '86 compró camisetas de nylon en CDMX porque las oficiales eran pesadas. 🇦🇷🇲🇽",
-		"El 'Gol del Siglo' de Maradona duró 10.6 segundos y recorrió 52 metros. 🔟🇦🇷",
-		"Roger Milla fue el goleador más viejo (38 años) en 1990 celebrando en el córner. 🇨🇲🕺",
-		"La final de 1990 tuvo las primeras dos expulsiones en la historia de una final. 🟥⚽",
-		"Oleg Salenko hizo 5 goles en un solo partido y su equipo fue eliminado igual. 🇷🇺🥅",
-		"Stoichkov exigió fumar en el vestuario de 1994 para poder rendir mejor. 🇧🇬🚬",
-		"Diana Ross falló un penal en la inauguración de 1994 a puerta vacía. 🎤🥅",
-		"1998 fue el debut del Gol de Oro y el primer mundial con 32 selecciones. ⚽✨",
-		"Robert Prosinečki marcó goles con dos selecciones distintas: Yugoslavia y Croacia. 🇭🇷⚽",
-		"Hakan Sukur tiene el gol más rápido de la historia: 11 segundos de juego. 🇹🇷⏱️",
-		"Alemania llegó a la final de 2002 recibiendo solo un gol antes de enfrentar a Brasil. 🇩🇪🧤",
-		"Josip Šimunić recibió 3 amarillas en un mismo partido por error del árbitro. 🇭🇷🟨",
-		"Suiza se fue de 2006 sin recibir un solo gol, eliminada en penales ante Ucrania. 🇨🇭🥅",
-		"Sudáfrica fue el primer anfitrión eliminado en primera fase de la historia. 🇿🇦📉",
-		"Brasil es el único país con 5+ copas que nunca ganó en casa. 🇧🇷🏠",
-		"En los dos mundiales de México (70 y 86), el 10 estrella fue campeón. 🇲🇽🔟",
-		"Francisco Matteucci arbitró en 1930 con apenas 27 años de edad. 🇺🇾⚖️",
-		"El récord de 199,854 fans en el Maracaná es hoy imposible de batir. 🏟️👥",
-		"El autogol de Andrés Escobar en 1994 le costó la vida días después. 🇨🇴💔",
-		"Cristiano Ronaldo jugó el mundial 2022 siendo agente libre (sin club). 🇵🇹🆓",
-		"Dinamarca entró de rebote a la Euro 92 y casi llega a semis en el 98. 🇩🇰⚽",
-		"Inglaterra no ganó una tanda de penales hasta 2018 contra Colombia. 🏴󠁧󠁢󠁳󠁣󠁴󠁿🎯",
-		"La final de 1994 es la única que terminó 0-0 tras 120 minutos. 🇧🇷🇮🇹",
-		"Solo Hurst y Mbappé han marcado un hat-trick en una final. ⚽⚽⚽",
-		"Ningún portero ha anotado jamás un gol en tiempo regular de Mundial. 🧤🚫",
-		"Francia 2002 fue el campeón defensor que se fue con cero goles. 🇫🇷📉",
-		"El árbitro del Brasil-Colombia 2014 permitió 54 faltas sin tarjetas. 🇧🇷🇨🇴",
-		"Canadá volvió al mundial tras 36 años, la misma brecha que Perú en 2018. 🇨🇦🇵🇪",
-		"Países Bajos ha jugado 3 finales y nunca ha levantado la copa. 🇳🇱🥈",
-		"Los 14 goles de Gerd Müller en mundiales fueron todos dentro del área. 🇩🇪🥅",
-		"Messi superó a Matthäus con el récord de 26 partidos jugados. 🇦🇷🐐",
-		"Escocia ha ido a 8 mundiales y siempre fue eliminada en primera fase. 🏴󠁧󠁢󠁳󠁣󠁴󠁿📉",
-		"Zidane marcó en dos finales distintas y fue expulsado en una de ellas. 🇫🇷🟥",
-		"Entre 2006 y 2022, Brasil solo fue eliminado por equipos europeos. 🇧🇷🇪🇺",
-		"FIFA rechazó definir empates de grupos con penales en 2026. 📋🚫",
-		"El estadio de Monterrey tiene vista directa a una montaña desde la grada. ⛰️🏟️",
-		"El centro de medios internacional de 2026 estará en Dallas. 📡🏢",
-		"Las entradas para 2026 usarán tecnología blockchain contra reventa. 🎟️⛓️",
-		"El techo del Mercedes-Benz Stadium se abre como pétalos de flor. 🏟️🌸",
-		"Kansas City es sede por su gran cultura de fútbol base local. 🇺🇸⚽",
-		"El SoFi Stadium costó $5 mil millones, siendo el más caro del mundo. 💰🏗️",
-		"Habrá un Museo FIFA itinerante que recorrerá las 16 sedes. 🏆🚌",
-		"Se esperan más de 100,000 voluntarios registrados para 2026. 🙋‍♂️✨",
-		"El balón de 2026 tendría sensor 5G con latencia menor a 1ms. ⚽📡",
-		"Selecciones tienen prohibido usar vuelos comerciales entre sedes. ✈️🚫",
-		"Philadelphia es sede por los 250 años de Independencia de EE. UU. 🇺🇸🔔",
-		"Montreal era sede de 2026 pero se retiró por costos financieros. 🇨🇦📉",
-		"El viento en el estadio de Boston suele afectar los balones largos. 💨⚽",
-		"El estadio de Santa Clara (SF) tiene un césped suave pero traicionero. 🇺🇸🌱",
-		"El himno de 2026 mezclará pop, música mexicana y folk canadiense. 🎶🌎",
-		"FBI y policía mexicana formarán una fuerza de seguridad conjunta. 👮‍♂️🛂",
-		"CDMX planea transporte directo del aeropuerto al Estadio Azteca. 🚌🏟️",
-		"El Lumen Field de Seattle es el estadio más ruidoso del mundo. 🔊📢",
-		"El aire acondicionado en Houston baja 15 grados en 10 minutos. ❄️🏟️",
-		"Por primera vez, Oceanía tiene un cupo directo garantizado al Mundial. 🏝️⚽",
-		"El sorteo de 2025 será el más complejo por distancias geográficas. 🗺️📋",
-		"Se estima superar los 300 goles totales por primera vez en 2026. ⚽📈",
-		"Dallas tendrá el hotel de hospitalidad más grande para sponsors. 🏨💰",
-		"La final es en New Jersey, aunque la marca comercial sea New York. 🗽🏟️",
-		"Se permitirán dorsales hasta el número 26 por el año del torneo. 🔟🔢",
-		"Habrá pausas de hidratación obligatorias en 12 de las 16 sedes. 💧☀️",
-		"El ganador de 2026 se lleva a casa una réplica de oro de 18 quilates. 🏆✨",
-		"El balón 'Trionda' envía datos 500 veces por segundo a la central. ⚽📡",
-		"El sistema SAOT rastreará 29 puntos de cada jugador 50 veces por segundo. 🤖🎥",
-                "Uruguay se coronó en 1950 silenciando a 200,000 personas en el Maracanazo."
-            ];
+        <div id="game-msg" style="position: absolute; top: 40%; width: 100%; text-align: center; font-size: 11px; color: var(--neon-yellow); z-index: 350; pointer-events: none; line-height: 2; text-shadow: 4px 4px #000; padding: 0 45px;" class="hidden"></div>
 
-            const podcasts = [
-                { id: 1, title: "¿Quién es el verdadero dueño del Mundial? Entre el Dinero y el Poder", desc: "¿Podemos disfrutar de un Mundial financiado por la 			controversia? Ponemos bajo la lupa la relación entre la FIFA y las figuras más poderosas del autoritarismo actual. Un análisis sin filtros sobre por 			qué el Mundial 2026 podría ser recordado más por sus conflictos éticos que por sus jugadas en la cancha.", file: 		"Dictadores.mp3" },
-                { id: 2, title: "Mundial 2026: Cuando el Negocio se Come al Deporte", desc: "Con 48 selecciones y un calendario asfixiante, el próximo Mundial plantea 		una duda razonable: ¿estamos priorizando la rentabilidad sobre la excelencia deportiva? Analizamos cómo la búsqueda de nuevos mercados y mayores 			ingresos amenaza con diluir el nivel técnico de la competición más importante del planeta.", file: "Calidad.mp3" },
-                { id: 3, title: "Cifras Imposibles: Los Récords más Insólitos del Camino al 2026", desc: "Más allá del marcador, el Mundial 2026 se perfila como una 		fábrica de datos sin precedentes. Desde distancias de viaje absurdas hasta hitos históricos que se romperán por el nuevo formato, repasamos los números 		más curiosos e inesperados que rodearán a la cita norteamericana.", file: "Records.mp3" },
-                { id: 4, title: "Mundial 2026: El monstruo de las 48 selecciones", desc: "Olvida todo lo que sabías sobre la Copa del Mundo. Estamos ante una mutación 		radical: un torneo gigante, disperso y diseñado para romper récords y fronteras. ¿Es una evolución necesaria o el principio del fin de la esencia 		mundialista?", file: "reinvencion.mp3" },
-                { id: 5, title: "Genios en Jaque: ¿Por qué la Táctica está Matando al Fútbol?", desc: "No es solo una estrategia, es una invasión. Los entrenadores han 		secuestrado el juego y los genios están en peligro de extinción. Desmenuzamos el conflicto invisible entre la libertad del crack y la tiranía de la 		pizarra en el nuevo orden mundial de la FIFA.", file: "genios.mp3" }
-            ];
+        <!-- START SCREEN -->
+        <div id="screen-start" class="overlay">
+            <div class="intro-header">
+                <span class="days-label-top">FALTAN</span>
+                <span id="days-num" class="pump-ui-text days-val">00</span>
+                <span class="days-label-bot">DÍAS PARA EL MUNDIAL</span>
+            </div>
 
-            useEffect(() => {
-                const target = new Date('2026-06-11T00:00:00').getTime();
-                const timer = setInterval(() => {
-                    const diff = target - new Date().getTime();
-                    setTimeLeft({
-                        dias: Math.floor(diff / (1000 * 60 * 60 * 24)),
-                        horas: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                        min: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-                        seg: Math.floor((diff % (1000 * 60)) / 1000),
-                    });
-                }, 1000);
+            <div class="rank-box">
+                <div style="font-size: 9px; color: var(--neon-yellow); margin-bottom: 12px;">🏆 ELITE HALL OF FAME 🏆</div>
+                <div id="hall-list"></div>
+            </div>
 
-                const factTimer = setInterval(() => {
-                    setCurrentFact(prev => (prev + 1) % datosCuriosos.length);
-                }, 8000);
+            <button class="btn-start" onclick="startGame()">INSERT COIN</button>
+        </div>
 
-                return () => { clearInterval(timer); clearInterval(factTimer); };
-            }, []);
-
-            return (
-                <div className="min-h-screen">
-                    {/* HERO & COUNTDOWN */}
-                    <header className="stadium-bg min-h-screen flex flex-col items-center pt-8 px-4">
-                        <nav className="w-full max-w-6xl flex justify-between items-center z-30 mb-8 px-4">
-                            <div className="flex items-center gap-2">
-                                <i data-lucide="trophy" className="text-[#39FF14] w-6 h-6"></i>
-                                <span className="font-oswald text-xl md:text-2xl tracking-tighter">MUNDIAL<span className="text-[#39FF14]">2026</span></span>
-                            </div>
-                            <div className="bg-[#39FF14] text-black px-4 py-1 font-tactical text-xs rounded-full font-bold uppercase tracking-widest border-2 border-black">Live: Sede México</div>
-                        </nav>
-
-                        <div className="relative z-20 w-full max-w-5xl text-center">
-                            <h1 className="text-4xl md:text-8xl font-oswald mb-6 drop-shadow-2xl italic">EL PITAZO INICIAL EN:</h1>
-                            
-                            <div className="led-panel p-6 md:p-12 rounded-3xl mx-auto w-full max-w-3xl mb-12">
-                                <div className="flex flex-col items-center">
-                                    <span className="font-tactical text-[7rem] md:text-[16rem] leading-none text-[#39FF14] neon-glow">
-                                        {timeLeft.dias}
-                                    </span>
-                                    <div className="bg-[#39FF14] text-black font-oswald px-10 py-1 text-sm md:text-3xl tracking-[0.4em] font-bold -mt-2 md:-mt-12 mb-8 skew-x-[-12deg]">
-                                        DÍAS
-                                    </div>
-                                    
-                                    <div className="grid grid-cols-3 gap-4 md:gap-16 w-full border-t border-white/20 pt-8">
-                                        <div className="flex flex-col items-center">
-                                            <span className="font-tactical text-3xl md:text-7xl text-white">{String(timeLeft.horas).padStart(2,'0')}</span>
-                                            <span className="text-[10px] md:text-xs text-[#39FF14] font-bold tracking-widest uppercase">Horas</span>
-                                        </div>
-                                        <div className="flex flex-col items-center border-x border-white/10 px-4">
-                                            <span className="font-tactical text-3xl md:text-7xl text-white">{String(timeLeft.min).padStart(2,'0')}</span>
-                                            <span className="text-[10px] md:text-xs text-[#39FF14] font-bold tracking-widest uppercase">Mins</span>
-                                        </div>
-                                        <div className="flex flex-col items-center">
-                                            <span className="font-tactical text-3xl md:text-7xl text-white">{String(timeLeft.seg).padStart(2,'0')}</span>
-                                            <span className="text-[10px] md:text-xs text-[#39FF14] font-bold tracking-widest uppercase">Segs</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* DATOS CURIOSOS IMPACTANTES */}
-                            <div className="w-full max-w-4xl mx-auto p-8 border-y-2 border-[#39FF14]/40 bg-black/70 backdrop-blur-md">
-                                <div className="flex items-center justify-center gap-3 mb-4">
-                                    <i data-lucide="zap" className="text-[#39FF14] w-5 h-5 animate-pulse"></i>
-                                    <span className="text-[#39FF14] font-tactical tracking-[0.4em] text-xs uppercase font-bold italic">Flash Informativo</span>
-                                </div>
-                                <div key={currentFact} className="fact-display">
-                                    <p className="font-oswald text-2xl md:text-5xl text-white leading-tight uppercase tracking-tight italic px-4">
-                                        "{datosCuriosos[currentFact]}"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* PODCAST CENTER */}
-                    <section className="py-24 px-4 max-w-7xl mx-auto">
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                            <div className="text-left">
-                                <h2 className="text-5xl md:text-7xl font-oswald text-[#39FF14] leading-none mb-2">Podcast Center</h2>
-                                <p className="text-gray-400 font-tactical uppercase tracking-widest text-xs italic border-l-2 border-[#39FF14] pl-4">Audios generados por NotebookLM</p>
-                            </div>
-                            <div className="bg-white/5 p-4 rounded border border-white/10 hidden md:block">
-                                <i data-lucide="headphones" className="text-[#39FF14] w-8 h-8"></i>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {podcasts.map((p) => (
-                                <div key={p.id} className="podcast-card p-8 rounded-2xl flex flex-col justify-between shadow-2xl">
-                                    <div className="mb-6">
-                                        <div className="flex justify-between items-center mb-4">
-                                            <span className="bg-[#39FF14] text-black font-tactical text-[10px] px-3 py-1 rounded-sm uppercase tracking-widest font-bold italic">Episodio 0{p.id}</span>
-                                            <i data-lucide="music" className="text-white/20 w-4 h-4"></i>
-                                        </div>
-                                        <h4 className="text-2xl font-oswald mt-2 mb-3 tracking-tight">{p.title}</h4>
-                                        <p className="text-gray-500 text-xs leading-relaxed italic opacity-80">{p.desc}</p>
-                                    </div>
-                                    <div className="mt-4">
-                                        <audio controls className="w-full h-10 rounded-full">
-                                            <source src={p.file} type="audio/mpeg" />
-                                            Tu navegador no soporta el reproductor de audio.
-                                        </audio>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* MUSEO DE LA EVOLUCIÓN (CONTENIDO PDF INTEGRADO) */}
-                    <section className="py-24 px-4 bg-white/5 border-y border-white/10 relative">
-                        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style={{backgroundImage: 'radial-gradient(var(--neon-green) 0.5px, transparent 0.5px)', backgroundSize: '20px 20px'}}></div>
-                        
-                        <div className="max-w-7xl mx-auto relative z-10">
-                            <h2 className="text-5xl md:text-6xl font-oswald mb-12 text-center text-[#39FF14] tracking-tighter">Museo de la Evolución</h2>
-                            
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-                                <div className="p-8 bg-black/80 border border-white/10 rounded-xl space-y-6 shadow-xl">
-                                    <div className="flex items-center gap-4 mb-2">
-                                        <i data-lucide="file-text" className="text-[#39FF14] w-8 h-8"></i>
-                                        <h4 className="text-3xl font-oswald text-[#39FF14]">Pasión y Curiosidades: El Lado Oculto de los Mundiales</h4>
-                                    </div>
-                                    <p className="text-gray-400 leading-relaxed italic text-sm md:text-base">
-                                        n viaje por las anécdotas más increíbles del fútbol. Desde el "Manco Divino" en 1930 hasta los datos insólitos que marcaron cada década. ¡Ideal para los amantes de las buenas historias!
-                                    </p>
-                                    <a href="Pasión_Mundial_De_1930_a_2026.pdf" target="_blank" className="btn-neon inline-flex items-center gap-2 px-6 py-3 rounded text-sm">
-                                        <i data-lucide="download" className="w-4 h-4"></i>¡Descubre la historia!
-                                    </a>
-                                </div>
-                                <div className="p-8 bg-black/80 border border-white/10 rounded-xl space-y-6 shadow-xl">
-                                    <div className="flex items-center gap-4 mb-2">
-                                        <i data-lucide="activity" className="text-[#39FF14] w-8 h-8"></i>
-                                        <h4 className="text-3xl font-oswald text-[#39FF14]">Evolución Mundialista: De Balones de Cuero a Microchips</h4>
-                                    </div>
-                                    <p className="text-gray-400 leading-relaxed italic text-sm md:text-base">
-                                        Descubre cómo la tecnología transformó el fútbol. Analizamos la evolución técnica de los balones y el nuevo formato de 48 equipos para el Mundial de Norteamérica 2026.
-                                    </p>
-                                    <a href="World_Cup_Evolution.pdf" target="_blank" className="btn-neon inline-flex items-center gap-2 px-6 py-3 rounded text-sm">
-                                        <i data-lucide="external-link" className="w-4 h-4"></i>Ver la evolución técnica
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Estadísticas Rápidas del Mundial */}
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                                <div className="p-8 glass flex flex-col items-center rounded-2xl border border-white/10">
-                                    <i data-lucide="users" className="w-12 h-12 text-[#39FF14] mb-4"></i>
-                                    <h5 className="font-oswald text-2xl mb-2">48 Naciones</h5>
-                                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">El mundial más grande de la historia</p>
-                                </div>
-                                <div className="p-8 glass flex flex-col items-center rounded-2xl border border-white/10">
-                                    <i data-lucide="map-pin" className="w-12 h-12 text-[#39FF14] mb-4"></i>
-                                    <h5 className="font-oswald text-2xl mb-2">16 Sedes</h5>
-                                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">3 países unidos por el fútbol</p>
-                                </div>
-                                <div className="p-8 glass flex flex-col items-center rounded-2xl border border-white/10">
-                                    <i data-lucide="tv" className="w-12 h-12 text-[#39FF14] mb-4"></i>
-                                    <h5 className="font-oswald text-2xl mb-2">Transmisión 8K</h5>
-                                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">Inmersión total en Fan Zones</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer className="py-20 px-4 text-center bg-black border-t border-white/5">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-60">
-                            <div className="font-oswald text-4xl mb-6 md:mb-0">2026<span className="text-[#39FF14]">Mundial</span></div>
-                            <div className="text-[10px] text-gray-600 uppercase tracking-[0.6em] font-bold">
-                                Plataforma Informativa Independiente • tranzge@gmail.com
-                            </div>
-                        </div>
-                    </footer>
+        <!-- GAME OVER SCREEN -->
+        <div id="screen-over" class="overlay hidden">
+            <h1 style="color: var(--neon-pink); font-size: 22px; margin-bottom: 15px;">FIN DEL JUEGO</h1>
+            
+            <div id="cromo-wrap" class="hidden">
+                <div id="cromo-output"></div>
+                <div class="action-btns">
+                    <button class="btn-small" onclick="downloadCromo()">DESCARGAR</button>
+                    <button class="btn-small" onclick="copyLink()">COPIAR LINK</button>
                 </div>
-            );
+                <button class="btn-start" style="margin-top: 30px; padding: 12px 25px; font-size: 12px;" onclick="location.reload()">REINTENTAR</button>
+            </div>
+
+            <div id="save-section">
+                <p style="font-size: 9px; margin-bottom: 15px;">CAPTURA TU RÉCORD (6 LETRAS)</p>
+                <input type="text" id="name-entry" maxlength="6" value="PLAYER">
+                <button class="btn-start" style="animation: none;" onclick="generateResult()">GENERAR FICHA</button>
+            </div>
+        </div>
+
+        <div id="toast" class="toast">LINK COPIADO AL PORTAPAPELES</div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <!-- Export Canvas para Cromo -->
+    <canvas id="exportCanvas" width="600" height="800" style="display:none;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const cabinet = document.getElementById('cabinet');
+        const scoreCurEl = document.getElementById('score-cur');
+        const scoreBestEl = document.getElementById('score-best');
+        const livesEl = document.getElementById('lives-container');
+        const startScreen = document.getElementById('screen-start');
+        const overScreen = document.getElementById('screen-over');
+        const gameMsg = document.getElementById('game-msg');
+        const diffTag = document.getElementById('diff-tag');
+
+        const SITE_URL = "https://cuentaregresivamundial.com/";
+
+        let width, height;
+        let score = 0;
+        let lives = 3;
+        let bestLocal = localStorage.getItem('wc_arcade_extreme_v6_best') || 0;
+        scoreBestEl.innerText = bestLocal.toString().padStart(2, '0');
+
+        function updateHall() {
+            const seed = Math.floor(Date.now() / (1000 * 60 * 60 * 48));
+            const names = ["MESSI6", "CR7LEG", "PELÉ10", "MARADO", "MBAPPÉ", "ZIZOU"];
+            let list = [];
+            for(let i=0; i<5; i++) {
+                const idx = (seed + i) % names.length;
+                const s = 65 + ((seed * (i+1)) % 35);
+                list.push({ name: names[idx], score: s });
+            }
+            list.sort((a,b) => b.score - a.score);
+            document.getElementById('hall-list').innerHTML = list.map((d, i) => `
+                <div class="rank-item">
+                    <span>${i+1}. ${d.name}</span>
+                    <span>${d.score.toString().padStart(2, '0')}</span>
+                </div>
+            `).join('');
+        }
+        updateHall();
+
+        function updateDays() {
+            // FECHA OFICIAL DE INICIO: 11 DE JUNIO DE 2026
+            const targetDate = new Date("2026-06-11T00:00:00");
+            const now = new Date();
+            const diff = targetDate - now;
+            const d = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+            
+            document.getElementById('days-num').innerText = d.toString().padStart(2, '0');
+        }
+        updateDays();
+
+        // --- Game Motor ---
+        let ball = { x: 0, y: 0, r: 26, vx: 0, vy: 0, gravity: 0.52, angle: 0, active: false };
+        let hazards = [];
+        let particles = [];
+        let frameCount = 0;
+        let tutorialSteps = ["¡TOCA PARA ELEVAR EL BALÓN!", "GOLPEA LOS LADOS PARA DIRIGIR", "NO DEJES QUE TOQUE EL SUELO", "TIENES 3 CORAZONES DE VIDA", "¡PREPÁRATE PARA EL MODO INFIERNO!"];
+
+        function resize() {
+            width = cabinet.clientWidth;
+            height = cabinet.clientHeight;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            if (!ball.active) { ball.x = width/2; ball.y = height/2.2; }
+        }
+
+        function updateLivesUI() {
+            livesEl.innerHTML = '';
+            for(let i=0; i<lives; i++) {
+                livesEl.innerHTML += `<svg class="heart" viewBox="0 0 32 32"><path d="M16 28.5L14.1 26.6C7.3 20.4 3 16.5 3 11.5 3 7.4 6.4 4 10.5 4c2.3 0 4.5 1.1 5.5 3 1-1.9 3.2-3 5.5-3 4.1 0 7.5 3.4 7.5 7.5 0 5-4.3 8.9-11.1 15.1L16 28.5z"/></svg>`;
+            }
+        }
+
+        window.startGame = () => {
+            score = 0; lives = 3; frameCount = 0;
+            updateLivesUI();
+            scoreCurEl.innerText = "00";
+            ball.active = true;
+            ball.x = width/2; ball.y = height/3.5;
+            ball.vx = 0; ball.vy = -12;
+            ball.gravity = 0.52;
+            hazards = [];
+            cabinet.classList.remove('extreme');
+            startScreen.classList.add('hidden');
+            overScreen.classList.add('hidden');
+            gameMsg.classList.remove('hidden');
+            gameMsg.innerText = tutorialSteps[0];
+            diffTag.innerText = "LEVEL 1";
+            diffTag.style.color = "var(--neon-yellow)";
         };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-        
-        // Re-initialize Lucide icons after render and on updates
-        setTimeout(() => lucide.createIcons(), 500);
+        function handleInput(e) {
+            if (!ball.active) return;
+            const rect = canvas.getBoundingClientRect();
+            const px = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+            const py = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+            const dx = ball.x - px;
+            const dy = ball.y - py;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            // Hitbox DDR Style (Se vuelve más estricta con el score)
+            const hitFactor = score < 10 ? 2.8 : (score < 30 ? 2.1 : 1.5);
+
+            if (dist < ball.r * hitFactor) {
+                ball.vy = -14.5 - (Math.min(score, 60) * 0.04);
+                ball.vx = (dx / ball.r) * 14;
+                score++;
+                scoreCurEl.innerText = score.toString().padStart(2, '0');
+                
+                if (score === 30) {
+                    cabinet.classList.add('extreme');
+                    gameMsg.classList.remove('hidden');
+                    gameMsg.innerText = "¡MODO INFIERNO!";
+                    gameMsg.style.color = "var(--neon-red)";
+                    diffTag.style.color = "var(--neon-red)";
+                    setTimeout(() => gameMsg.classList.add('hidden'), 2500);
+                }
+
+                diffTag.innerText = score < 30 ? "LEVEL " + (Math.floor(score/10)+1) : "HELL MODE";
+
+                if (score < 5) gameMsg.innerText = tutorialSteps[score];
+                else if (score < 30) gameMsg.classList.add('hidden');
+
+                // Gravedad dinámica
+                ball.gravity = 0.52 + (Math.floor(score/10) * 0.07) + (score > 30 ? 0.12 : 0);
+
+                if (score > 10 && score % (score > 30 ? 3 : 5) === 0) {
+                    hazards.push({ 
+                        side: Math.random() > 0.5 ? 'left' : 'right', 
+                        y: Math.random() * (height - 350) + 150, 
+                        h: score > 30 ? 160 : 130,
+                        life: score > 30 ? 260 : 200, 
+                        p: 0,
+                        speed: 2.2 + (score * 0.05)
+                    });
+                }
+
+                // Partículas Neón
+                for(let i=0; i<16; i++) {
+                    particles.push({ 
+                        x: px, y: py, 
+                        vx: (Math.random()-0.5)*20, 
+                        vy: (Math.random()-0.5)*20, 
+                        life: 1, 
+                        color: score > 30 ? 'var(--neon-red)' : (score > 20 ? 'var(--neon-pink)' : 'var(--neon-cyan)') 
+                    });
+                }
+                if (navigator.vibrate) navigator.vibrate(score > 30 ? 50 : 25);
+            }
+        }
+
+        window.generateResult = () => {
+            const flash = document.getElementById('flash');
+            flash.style.opacity = 1; setTimeout(() => flash.style.opacity = 0, 100);
+            const name = document.getElementById('name-entry').value || "PLAYER";
+            exportCromo(name, score);
+            if (score > bestLocal) {
+                bestLocal = score;
+                localStorage.setItem('wc_arcade_extreme_v6_best', bestLocal);
+                scoreBestEl.innerText = bestLocal.toString().padStart(2, '0');
+            }
+            document.getElementById('save-section').classList.add('hidden');
+            document.getElementById('cromo-wrap').classList.remove('hidden');
+        };
+
+        function exportCromo(name, score) {
+            const ex = document.getElementById('exportCanvas');
+            const eCtx = ex.getContext('2d');
+            
+            eCtx.fillStyle = "#050512"; eCtx.fillRect(0,0,600,800);
+            const neonCol = score > 30 ? "#ff3131" : "#00f2ff"; 
+            eCtx.strokeStyle = neonCol; 
+            eCtx.lineWidth = 20; eCtx.strokeRect(10,10,580,780);
+            eCtx.strokeStyle = "#fff"; eCtx.lineWidth = 2; eCtx.strokeRect(35,35,530,730);
+
+            eCtx.fillStyle = "#fff"; eCtx.textAlign = "center";
+            eCtx.font = "26px 'Press Start 2P'";
+            eCtx.fillText(score > 30 ? "HELL STRIKER 2026" : "ELITE STRIKER 2026", 300, 100);
+            
+            // --- NÚMEROS ESTILO PUMP IT UP / DDR ---
+            const scoreX = 300;
+            const scoreY = 400;
+            const txt = score.toString().padStart(2, '0');
+            
+            eCtx.save();
+            eCtx.translate(scoreX, scoreY);
+            eCtx.transform(1, 0, -0.22, 1, 0, 0); 
+            eCtx.font = "900 290px 'Outfit', sans-serif";
+            
+            eCtx.shadowBlur = 50;
+            eCtx.shadowColor = score > 30 ? "#ff3131" : "#ff00ff";
+            
+            eCtx.strokeStyle = "#000"; eCtx.lineWidth = 45; eCtx.strokeText(txt, 0, 0);
+            eCtx.shadowBlur = 0; 
+            eCtx.strokeStyle = score > 30 ? "#fff" : "#b3ff00"; eCtx.lineWidth = 20; eCtx.strokeText(txt, 0, 0);
+            eCtx.fillStyle = "#fff"; eCtx.fillText(txt, 0, 0);
+            eCtx.restore();
+
+            eCtx.font = "20px 'Press Start 2P'";
+            eCtx.fillStyle = neonCol;
+            eCtx.fillText("GOLES CONSECUTIVOS", 300, 485);
+            
+            eCtx.fillStyle = "#ffff00"; eCtx.font = "34px 'Press Start 2P'";
+            eCtx.fillText(name.toUpperCase().substring(0,6), 300, 640);
+            
+            eCtx.fillStyle = "rgba(255,255,255,0.6)"; eCtx.font = "14px 'Press Start 2P'";
+            eCtx.fillText(SITE_URL.replace("https://","").replace("/",""), 300, 745);
+
+            const img = ex.toDataURL("image/png");
+            document.getElementById('cromo-output').innerHTML = `<img src="${img}" id="final-img">`;
+            document.getElementById('cromo-output').style.display = "block";
+        }
+
+        window.downloadCromo = () => {
+            const link = document.createElement('a');
+            link.href = document.getElementById('final-img').src;
+            link.download = 'record-mundial-2026.png';
+            link.click();
+        };
+
+        window.copyLink = () => {
+            const text = `⚽ ¡He logrado ${score} dominadas para el Mundial 2026! ¿Puedes superarme? Juega en: ${SITE_URL}`;
+            
+            // Uso de dummy textarea para evitar errores de Clipboard API en iFrames
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                const t = document.getElementById('toast');
+                t.style.display = "block"; 
+                setTimeout(() => t.style.display = "none", 2000);
+            } catch (err) {
+                console.error('Error al copiar el enlace', err);
+            }
+            document.body.removeChild(textArea);
+        };
+
+        function update() {
+            ctx.clearRect(0, 0, width, height);
+            frameCount++;
+
+            if (ball.active) {
+                // Viento modo infierno
+                if (score >= 30) {
+                    ball.vx += Math.sin(frameCount * 0.05) * 0.25;
+                }
+
+                ball.vy += ball.gravity;
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+                ball.angle += ball.vx * 0.05;
+                ball.vx *= 0.985;
+
+                if (ball.x - ball.r < 0 || ball.x + ball.r > width) {
+                    const side = ball.x - ball.r < 0 ? 'left' : 'right';
+                    const hit = hazards.some(o => o.side === side && ball.y > o.y && ball.y < o.y + o.h);
+                    if (hit) { lives = 0; triggerGameOver(); }
+                    else { ball.vx *= -0.7; ball.x = side === 'left' ? ball.r : width - ball.r; }
+                }
+
+                if (ball.y - ball.r > height) {
+                    lives--; updateLivesUI();
+                    if (lives <= 0) { ball.active = false; triggerGameOver(); }
+                    else {
+                        ball.y = height/4; ball.vy = -6; ball.vx = (Math.random()-0.5)*14;
+                        gameMsg.classList.remove('hidden'); 
+                        gameMsg.innerText = "¡VIDA UTILIZADA!";
+                        gameMsg.style.color = score >= 30 ? "var(--neon-red)" : "var(--neon-yellow)";
+                        setTimeout(() => { if(ball.active) gameMsg.classList.add('hidden'); }, 1500);
+                    }
+                }
+            }
+
+            hazards.forEach((o, i) => {
+                o.p += 0.1; o.y += Math.sin(o.p * 0.6) * o.speed;
+                ctx.fillStyle = Math.sin(o.p * 6) > 0 ? (score >= 30 ? "var(--neon-red)" : "var(--neon-pink)") : "#fff";
+                const x = o.side === 'left' ? 0 : width - 8;
+                ctx.fillRect(x, o.y, 8, o.h);
+                o.life--; if (o.life <= 0) hazards.splice(i, 1);
+            });
+
+            particles = particles.filter(p => {
+                p.x += p.vx; p.y += p.vy; p.life -= 0.04;
+                if (p.life > 0) { ctx.globalAlpha = p.life; ctx.fillStyle = p.color; ctx.fillRect(p.x, p.y, 3, 3); return true; }
+                return false;
+            });
+            ctx.globalAlpha = 1;
+
+            // Balón Pixel Art
+            ctx.save(); ctx.translate(ball.x, ball.y); ctx.rotate(ball.angle);
+            ctx.beginPath(); ctx.arc(0, 0, ball.r, 0, Math.PI * 2); ctx.fillStyle = "#fff"; ctx.fill();
+            ctx.fillStyle = score >= 30 ? "var(--neon-red)" : "#000"; 
+            for(let i=0; i<6; i++) { ctx.rotate(Math.PI*2/6); ctx.fillRect(ball.r*0.4, -4, 9, 7); }
+            ctx.strokeStyle = "#000"; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+
+            if (ball.active) {
+                const s = Math.max(0, 0.3 * (1 - (height - ball.y) / height));
+                ctx.fillStyle = score >= 30 ? `rgba(255, 49, 49, ${s})` : `rgba(0, 242, 255, ${s})`;
+                ctx.beginPath(); ctx.ellipse(ball.x, height-15, ball.r * 2.2, 5, 0, 0, Math.PI * 2); ctx.fill();
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        function triggerGameOver() { gameMsg.classList.add('hidden'); overScreen.classList.remove('hidden'); }
+        window.addEventListener('pointerdown', handleInput);
+        window.addEventListener('resize', resize);
+        resize(); requestAnimationFrame(update);
     </script>
 </body>
 </html>
